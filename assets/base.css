@@ -7974,6 +7974,24 @@ html[dir="rtl"] .navPages-action::before {
 .template-collection #main-collection-product-grid {
     gap: 20px;
 }
+.template-collection #main-collection-product-grid .price-item--sale {
+    color: #fcc216;
+}
+.template-collection #main-collection-product-grid a.button.button-ATC.is-notify-me {
+    background-color: #fcc216;
+    border: 0;
+    border-radius: 5px;
+}
+.template-collection #main-collection-product-grid .card-product {
+    position: static;
+}
+.template-collection #main-collection-product-grid .card-action {
+    opacity: 1;
+    visibility: visible;
+}
+.template-collection #main-collection-product-grid div#product-swatch-10305028554916 {
+    display: none;
+}
 .template-collection #main-collection-product-grid a.vendor-text {
     font-weight: 300;
 }
@@ -7987,9 +8005,12 @@ html[dir="rtl"] .navPages-action::before {
 }
 .template-collection #main-collection-product-grid .card-action {
     padding: 0 10px;
+    position: absolute;
+    bottom: 15px;
 }
 .template-collection #main-collection-product-grid .product{
-    margin-bottom: 10px;
+    margin-bottom: 30px;
+    position: relative;
 }
 .template-collection #main-collection-product-grid .product .product-item{
     transition: .4s;
@@ -7999,4 +8020,5 @@ html[dir="rtl"] .navPages-action::before {
 }
 .template-collection #main-collection-product-grid .card-information {
     padding: 15px 5px 0px;
+    margin-bottom: 40px;
 }
