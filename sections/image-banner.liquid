@@ -1,0 +1,61 @@
+{%- if section.blocks.size > 0 -%}
+    {%- assign container = section.settings.container -%}
+    {%- assign headingLineHeight = settings.type_heading_line_height -%}
+    <style type="text/css" media="screen">
+        {%- liquid
+            assign mg_top_desktop = section.settings.mg_top_desktop
+            assign mg_top_tablet = section.settings.mg_top_tablet
+            assign mg_top_mobile = section.settings.mg_top_mobile
+
+            assign mg_bottom_desktop = section.settings.mg_bottom_desktop
+            assign mg_bottom_tablet = section.settings.mg_bottom_tablet
+            assign mg_bottom_mobile = section.settings.mg_bottom_mobile
+
+            assign padding_full_width = section.settings.padding_full_width
+
+            assign color_title = section.settings.color_title
+            assign fontsize_title = section.settings.fontsize_title
+            assign fontsize_title_mb = section.settings.fontsize_title_mb
+            assign margin_bottom_title = section.settings.margin_bottom_title
+
+            assign color_des = section.settings.color_des
+            assign fontsize_des = section.settings.fontsize_des
+
+            assign arrows_position = section.settings.arrows_position
+            assign list_gap = section.settings.list_gap | append: 'px'
+        -%}
+        #halo-image-banner-{{ section.id }} .halo-block-header .title:before {background-color: var(--color_title)}
+        #halo-image-banner-{{ section.id }} .halo-block-header .title--no-border:before{display: none}
+        #halo-image-banner-{{ section.id }} .halo-block-header .title {color: var(--color_title);font-size: var(--fontsize_title);margin-top: 2px;margin-bottom: var(--margin_bottom_title); line-height: var(--line_height_title)}
+        #halo-image-banner-{{ section.id }} .halo-block-header .rte {color: var(--color_des);font-size: var(--fontsize_des)}
+        #halo-image-banner-{{ section.id }} .slick-next {right: var(--arrows_position) !important}
+        #halo-image-banner-{{ section.id }} .slick-prev {left: var(--arrows_position) !important}
+        #halo-image-banner-{{ section.id }} {margin-bottom: var(--section_margin)}
+        #halo-image-banner-{{ section.id }} .banner-heading {font-size: var(--heading_font_size);color: var(--heading_color);font-weight: var(--heading_font_weight);letter-spacing: var(--letter_spacing_heading);line-height: var(--heading_line_height) !important}
+        #halo-image-banner-{{ section.id }} .type-item--special .banner-heading{margin-bottom: var(--margin_bottom_heading)}
+        #halo-image-banner-{{ section.id }} .border--border_s1 .banner-heading {padding-bottom: 18px;margin-bottom: 18px}
+    </style>
+
+    <div id="halo-image-banner-{{ section.id }}" class="halo-image-banner">
+        {%- for block in section.blocks -%}
+            {% if block.settings.image != blank %}
+                {% assign width = block.settings.image.width %}
+                {% assign height = block.settings.image.width | divided_by: block.settings.image.aspect_ratio | round %}
+                <img
+                    src="{{ block.settings.image | img_url: '750x' }}"
+                    srcset="
+                        {{ block.settings.image | img_url: '375x' }} 375w,
+                        {{ block.settings.image | img_url: '550x' }} 550w,
+                        {{ block.settings.image | img_url: '750x' }} 750w
+                    "
+                    sizes="(max-width: 749px) 100vw, 750px"
+                    width="{{ width }}"
+                    height="{{ height }}"
+                    alt="{{ block.settings.image.alt | escape }}"
+                    loading="lazy"
+                    fetchpriority="{% if forloop.first %}high{% else %}auto{% endif %}"
+                    class="lazyload" />
+            {% endif %}
+        {%- endfor -%}
+    </div>
+{%- endif -%}

@@ -1,0 +1,824 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.css" />
+
+{% style %}
+  :root {
+    --accent-green: {{ section.settings.accent_color }};
+  }
+
+  .full-width-product-section-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    width: 100%;
+    position: relative;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+  
+  .section-container-{{ section.id }} {
+    padding-left: 40px;
+    padding-right: 40px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  rect{
+    color: #fcc216;
+  }
+  .section-header-wrap-{{ section.id }} {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    margin-bottom: 25px;
+    width: 100%;
+  }
+
+  .section-header-wrap-{{ section.id }}::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 50%;
+    transform: translateY(50%);
+    height: 4px;
+    background: linear-gradient(90deg, {{ section.settings.gradient_line_color }} 0%, rgba(0, 0, 0, 0) 100%);
+    z-index: 1;
+  }
+
+  .section-title-box-{{ section.id }} {
+    position: relative;
+    z-index: 2;
+    background: #fff;
+    padding-right: 15px;
+  }
+
+  .section-title-box-{{ section.id }} h2 {
+    margin: 0;
+    font-size: {{ section.settings.title_font_size }}px;
+    color: {{ section.settings.title_color }};
+    font-weight: bold;
+    display: inline-block;
+    background: linear-gradient(90deg, {{ section.settings.gradient_line_color }} 0%, rgba(0, 0, 0, 0) 100%);
+  }
+
+  .view-all-wrap-{{ section.id }} {
+    position: relative;
+    z-index: 2;
+    background: #fff;
+    padding-left: 15px;
+  }
+
+  .view-all-btn-{{ section.id }} {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    padding: 6px 14px;
+    border-radius: 6px;
+    background: #fff;
+    transition: all 0.2s ease;
+    width: 100px;
+  }
+
+  .view-all-btn-{{ section.id }}:hover {
+    background-color: #f7f7f7;
+    border-color: #999;
+  }
+
+  .grid-slider-relative-wrapper-{{ section.id }} {
+    position: relative;
+    width: 100%;
+    padding: 0 40px;
+    box-sizing: border-box;
+  }
+  
+  .swiper-container-{{ section.id }} {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+  }
+
+  .swiper-container-{{ section.id }} .swiper-wrapper {
+    box-sizing: border-box;
+    align-items: stretch;
+  }
+
+  .swiper-container-{{ section.id }} .swiper-slide {
+    height: auto !important;
+    box-sizing: border-box;
+  }
+
+  .custom-p-card-{{ section.id }} {
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: #fff;
+    overflow: hidden;
+    height: 100%;
+    transition: box-shadow 0.3s;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.10);
+    position: relative;
+  }
+
+  .custom-p-card-{{ section.id }}:hover {
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+  }
+
+  .p-img-link-{{ section.id }} {
+    display: block;
+    padding: 15px;
+    text-align: center;
+    position: relative;
+    min-height: 180px;
+  }
+
+  .p-img-link-{{ section.id }} img {
+    max-width: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    max-height: 150px;
+    display: inline-block;
+  }
+
+  /* Discount Badge Style */
+  .discount-badge-{{ section.id }} {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #FCC216;
+    color: #fff;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 4px 8px;
+    border-radius: 4px;
+    z-index: 3;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  }
+
+  .p-info-{{ section.id }} {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  .p-title-{{ section.id }} {
+    font-size: {{ section.settings.product_title_size }}px;
+    color: {{ section.settings.product_title_color }};
+    font-weight: normal;
+    line-height: 1.4;
+    margin: 0 0 5px 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-decoration: none;
+  }
+
+  .p-vendor-{{ section.id }} {
+    font-size: 10px;
+    color: #888;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .p-price-row-{{ section.id }} {
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .current-price-{{ section.id }} {
+    font-size: {{ section.settings.price_size }}px;
+    font-weight: bold;
+    color: {{ section.settings.price_color }};
+  }
+
+  .compare-price-{{ section.id }} {
+    font-size: calc({{ section.settings.price_size }}px - 2px);
+    font-weight: normal;
+    color: #999;
+    text-decoration: line-through;
+  }
+  
+  .payment-icons-only-box-{{ section.id }} {
+    background-color: {{ section.settings.payment_box_bg }};
+    border: 1px solid {{ section.settings.payment_box_border }};
+    border-radius: 4px;
+    padding: 6px 8px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4px;
+    min-height: 28px;
+  }
+
+  .payment-left-badges-{{ section.id }} {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    height: 100%;
+    width: 100%;
+  }
+  
+  .payment-custom-uploaded-img-{{ section.id }} {
+    width: auto;
+    height: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+
+  .payment-badge-{{ section.id }} {
+    font-size: 8px;
+    color: #fff;
+    padding: 2px 4px;
+    border-radius: 2px;
+    font-weight: bold;
+  }
+
+  .knet-badge-{{ section.id }} { background: #0056b3; }
+  .visa-badge-{{ section.id }} { background: #f79e1b; }
+  .master-badge-{{ section.id }} { background: #cc0000; }
+
+  .add-to-cart-btn-{{ section.id }} {
+    background-color: {{ section.settings.cart_bg_color | default: section.settings.cart_btn_bg }};
+    color: {{ section.settings.cart_btn_text_color }};
+    border: none;
+    width: 100%;
+    padding: 12px;
+    font-size: {{ section.settings.cart_btn_size }}px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    border-radius: 0 0 4px 4px;
+    transition: opacity 0.2s, background-color 0.2s;
+  }
+
+  .add-to-cart-btn-{{ section.id }} svg {
+    display: block;
+    flex-shrink: 0;
+  }
+
+  .add-to-cart-btn-{{ section.id }}:hover:not([disabled]) {
+    opacity: 0.95;
+  }
+
+  .add-to-cart-btn-{{ section.id }}[disabled] {
+    background-color: #FDDA73 !important;
+    color: #fff !important;
+    cursor: not-allowed;
+  }
+
+  .custom-swiper-nav-{{ section.id }} {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 35px;
+    height: 100px;
+    background-color: var(--accent-green);
+    color: #fff;
+    z-index: 105;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .grid-slider-relative-wrapper-{{ section.id }}:hover .custom-swiper-nav-{{ section.id }} {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .custom-swiper-nav-{{ section.id }}:hover {
+    opacity: 0.9;
+  }
+
+  .custom-swiper-nav-{{ section.id }}.swiper-button-disabled {
+    opacity: 0.2 !important;
+    cursor: not-allowed;
+  }
+
+  .custom-swiper-prev-{{ section.id }} {
+    left: 2px;
+  }
+
+  .custom-swiper-next-{{ section.id }} {
+    right: 2px;
+  }
+
+  .custom-swiper-nav-{{ section.id }} svg {
+    width: 18px;
+    height: 18px;
+    stroke-width: 3;
+  }
+
+  @media screen and (max-width: 767px) {
+    .grid-slider-relative-wrapper-{{ section.id }} {
+      padding: 0 28px;
+    }
+
+    .custom-swiper-nav-{{ section.id }} {
+      width: 26px;
+      height: 70px;
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .p-img-link-{{ section.id }} {
+      min-height: 140px;
+    }
+
+    .p-img-link-{{ section.id }} img {
+      max-height: 120px;
+    }
+    .section-container-{{ section.id }} {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+    .section-title-box-{{ section.id }} h2 {
+   
+    font-size: 18px !important;
+  
+  }
+  }
+{% endstyle %}
+
+<div class="full-width-product-section-{{ section.id }}">
+  <div class="section-container-{{ section.id }}">
+    <div class="section-header-wrap-{{ section.id }}">
+      <div class="section-title-box-{{ section.id }}">
+        <h2>{{ section.settings.title }}</h2>
+      </div>
+
+      {% if section.settings.collection != blank %}
+        <div class="view-all-wrap-{{ section.id }}">
+          <a href="{{ section.settings.collection.url }}" class="view-all-btn-{{ section.id }}">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <rect x="3" y="3" width="7" height="7" fill="currentColor"></rect>
+              <rect x="14" y="3" width="7" height="7" fill="currentColor"></rect>
+              <rect x="14" y="14" width="7" height="7" fill="currentColor"></rect>
+              <rect x="3" y="14" width="7" height="7" fill="currentColor"></rect>
+            </svg>
+            View all
+          </a>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+
+  {% assign selected_collection = section.settings.collection %}
+  
+  <div class="grid-slider-relative-wrapper-{{ section.id }}">
+    <div class="custom-swiper-nav-{{ section.id }} custom-swiper-prev-{{ section.id }}" id="prev-btn-{{ section.id }}">
+      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path>
+      </svg>
+    </div>
+
+    <div class="custom-swiper-nav-{{ section.id }} custom-swiper-next-{{ section.id }}" id="next-btn-{{ section.id }}">
+      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path>
+      </svg>
+    </div>
+
+    <div class="swiper swiper-container-{{ section.id }}">
+      <div class="swiper-wrapper">
+        
+        {% if selected_collection != blank and selected_collection.products_count > 0 %}
+          {% for product in selected_collection.products limit: section.settings.product_limit %}
+            <div class="swiper-slide">
+              <div class="custom-p-card-{{ section.id }}">
+                
+                {% comment %} Dynamic Discount Badge {% endcomment %}
+                {% if product.compare_at_price > product.price %}
+                  {% assign savings = product.compare_at_price | minus: product.price | times: 100 | divided_by: product.compare_at_price %}
+                  <div class="discount-badge-{{ section.id }}">-{{ savings }}%</div>
+                {% endif %}
+
+                <a href="{{ product.url }}" class="p-img-link-{{ section.id }}">
+                  {% if product.featured_image != blank %}
+                    <img
+                      src="{{ product.featured_image | image_url: width: 400 }}"
+                      alt="{{ product.title | escape }}"
+                      width="400"
+                      height="400"
+                      loading="lazy"
+                    >
+                  {% else %}
+                    {{ 'product-1' | placeholder_svg_tag }}
+                  {% endif %}
+                </a>
+
+                <div class="p-info-{{ section.id }}">
+                  <div>
+                    <a href="{{ product.url }}" class="p-title-{{ section.id }}">{{ product.title }}</a>
+
+                    {% if section.settings.show_vendor %}
+                      <div class="p-vendor-{{ section.id }}">{{ product.vendor }}</div>
+                    {% endif %}
+                  </div>
+
+                  <div>
+                    <div class="p-price-row-{{ section.id }}">
+                      <span class="current-price-{{ section.id }}">{{ product.price | money }}</span>
+                      
+                      {% comment %} Dynamic Compare at Price {% endcomment %}
+                      {% if product.compare_at_price > product.price %}
+                        <span class="compare-price-{{ section.id }}">{{ product.compare_at_price | money }}</span>
+                      {% endif %}
+                    </div>
+                    
+                    {% if section.settings.show_payment_box %}
+                      <div class="payment-icons-only-box-{{ section.id }}">
+                        <div class="payment-left-badges-{{ section.id }}">
+                          {% if section.settings.payment_image != blank %}
+                            <img
+                              src="{{ section.settings.payment_image | image_url: width: 300 }}"
+                              class="payment-custom-uploaded-img-{{ section.id }}"
+                              alt="Payment Badges Options"
+                              loading="lazy"
+                              width="300"
+                            >
+                          {% else %}
+                            <span class="payment-badge-{{ section.id }} knet-badge-{{ section.id }}">KNET</span>
+                            <span class="payment-badge-{{ section.id }} visa-badge-{{ section.id }}">VISA</span>
+                            <span class="payment-badge-{{ section.id }} master-badge-{{ section.id }}">MC</span>
+                          {% endif %}
+                        </div>
+                      </div>
+                    {% endif %}
+                  </div>
+                </div>
+
+                <form method="post" action="/cart/add">
+                  <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+                  <button type="submit" class="add-to-cart-btn-{{ section.id }}" {% unless product.available %}disabled{% endunless %}>
+                    {% if product.available %}
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:6px;">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                      </svg>
+                      ADD TO CART
+                    {% else %}
+                      OUT OF STOCK
+                    {% endif %}
+                  </button>
+                </form>
+              </div>
+            </div>
+          {% endfor %}
+        {% else %}
+          {% for i in (1..12) %}
+            {% assign placeholder_number = i | modulo: 6 | plus: 1 %}
+
+            <div class="swiper-slide">
+              <div class="custom-p-card-{{ section.id }}">
+                
+                {% comment %} Placeholder Discount Badge {% endcomment %}
+                <div class="discount-badge-{{ section.id }}">-20%</div>
+
+                <div class="p-img-link-{{ section.id }}">
+                  {{ 'product-' | append: placeholder_number | placeholder_svg_tag }}
+                </div>
+
+                <div class="p-info-{{ section.id }}">
+                  <h3 class="p-title-{{ section.id }}">Sample Dynamic Laptop Core i7 Model Box {{ i }}</h3>
+
+                  <div class="p-price-row-{{ section.id }}">
+                    <span class="current-price-{{ section.id }}">KD 350.000</span>
+                    <span class="compare-price-{{ section.id }}">KD 437.500</span>
+                  </div>
+
+                  <div class="payment-icons-only-box-{{ section.id }}">
+                    <div class="payment-left-badges-{{ section.id }}">
+                      {% if section.settings.payment_image != blank %}
+                        <img
+                          src="{{ section.settings.payment_image | image_url: width: 300 }}"
+                          class="payment-custom-uploaded-img-{{ section.id }}"
+                          alt="Payment Options Preview"
+                          width="300"
+                        >
+                      {% else %}
+                        <span class="payment-badge-{{ section.id }} knet-badge-{{ section.id }}">KNET</span>
+                        <span class="payment-badge-{{ section.id }} visa-badge-{{ section.id }}">VISA</span>
+                      {% endif %}
+                    </div>
+                  </div>
+                </div>
+
+                <button class="add-to-cart-btn-{{ section.id }}">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:6px;">
+                    <circle cx="9" cy="21" r="1"></circle>
+                    <circle cx="20" cy="21" r="1"></circle>
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                  </svg>
+                  ADD TO CART
+                </button>
+              </div>
+            </div>
+          {% endfor %}
+        {% endif %}
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js" defer></script>
+
+<script>
+  (function() {
+    var sectionId = '{{ section.id }}';
+    var swiperInstance = null;
+    var retryCount = 0;
+
+    function initSwiperSafe() {
+      var container = document.querySelector('.swiper-container-' + sectionId);
+      var nextBtn = document.querySelector('#next-btn-' + sectionId);
+      var prevBtn = document.querySelector('#prev-btn-' + sectionId);
+
+      if (!container) return;
+
+      if (typeof Swiper === 'undefined') {
+        retryCount++;
+        if (retryCount <= 20) {
+          setTimeout(initSwiperSafe, 150);
+        }
+        return;
+      }
+
+      if (container.dataset.swiperReady === 'true') {
+        return;
+      }
+
+      if (swiperInstance && typeof swiperInstance.destroy === 'function') {
+        swiperInstance.destroy(true, true);
+        swiperInstance = null;
+      }
+
+      swiperInstance = new Swiper(container, {
+        slidesPerView: 2,
+        spaceBetween: 12,
+        watchOverflow: true,
+        observer: true,
+        observeParents: true,
+        resizeObserver: true,
+        grid: {
+          rows: 2,
+          fill: 'row'
+        },
+        navigation: {
+          nextEl: nextBtn,
+          prevEl: prevBtn
+        },
+        breakpoints: {
+          768: {
+            slidesPerView: 3,
+            spaceBetween: 12,
+            grid: {
+              rows: 2,
+              fill: 'row'
+            }
+          },
+          1200: {
+            slidesPerView: 6,
+            spaceBetween: 12,
+            grid: {
+              rows: 2,
+              fill: 'row'
+            }
+          }
+        },
+        on: {
+          init: function() {
+            container.dataset.swiperReady = 'true';
+          }
+        }
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initSwiperSafe);
+    } else {
+      initSwiperSafe();
+    }
+
+    document.addEventListener('shopify:section:load', function(event) {
+      if (event.detail && event.detail.sectionId === sectionId) {
+        var container = document.querySelector('.swiper-container-' + sectionId);
+        if (container) {
+          container.dataset.swiperReady = 'false';
+        }
+        retryCount = 0;
+        initSwiperSafe();
+      }
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Row Grid Slider",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content Settings"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "Gaming Laptops"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Select Collection"
+    },
+    {
+      "type": "range",
+      "id": "product_limit",
+      "min": 8,
+      "max": 48,
+      "step": 4,
+      "label": "Product Limit",
+      "default": 24
+    },
+    {
+      "type": "checkbox",
+      "id": "show_vendor",
+      "label": "Show Vendor/Brand",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Payment Box & Badge Options"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_payment_box",
+      "label": "Show Payment Box",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "payment_image",
+      "label": "Upload Custom Payment Badges Image",
+      "info": "Upload a custom PNG containing payment logos. Leave blank to use default badges."
+    },
+    {
+      "type": "color",
+      "id": "payment_box_bg",
+      "label": "Payment Box Background Color",
+      "default": "#f4f9f5"
+    },
+    {
+      "type": "color",
+      "id": "payment_box_border",
+      "label": "Payment Box Border Color",
+      "default": "#e1efe4"
+    },
+    {
+      "type": "header",
+      "content": "Typography & Colors Customization"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent Theme Color Arrows",
+      "default": "#00a651"
+    },
+    {
+      "type": "color",
+      "id": "gradient_line_color",
+      "label": "Gradient Line Start Color",
+      "default": "#00a651"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Section Title Color",
+      "default": "#111111"
+    },
+    {
+      "type": "range",
+      "id": "title_font_size",
+      "min": 16,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Section Title Font Size",
+      "default": 24
+    },
+    {
+      "type": "color",
+      "id": "product_title_color",
+      "label": "Product Card Title Color",
+      "default": "#222222"
+    },
+    {
+      "type": "range",
+      "id": "product_title_size",
+      "min": 10,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "label": "Product Card Title Font Size",
+      "default": 12
+    },
+    {
+      "type": "color",
+      "id": "price_color",
+      "label": "Current Price Color",
+      "default": "#00a651"
+    },
+    {
+      "type": "range",
+      "id": "price_size",
+      "min": 12,
+      "max": 22,
+      "step": 1,
+      "unit": "px",
+      "label": "Current Price Font Size",
+      "default": 15
+    },
+    {
+      "type": "header",
+      "content": "Add to Cart Button Tuning"
+    },
+    {
+      "type": "color",
+      "id": "cart_btn_bg",
+      "label": "Cart Button Background Color",
+      "default": "#00a651"
+    },
+    {
+      "type": "color",
+      "id": "cart_btn_text_color",
+      "label": "Cart Button Text Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "cart_btn_size",
+      "min": 10,
+      "max": 16,
+      "step": 1,
+      "unit": "px",
+      "label": "Cart Button Font Size",
+      "default": 12
+    },
+    {
+      "type": "header",
+      "content": "Section Structure Margins"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 24
+    }
+  ],
+  "presets": [
+    {
+      "name": "6 Column 2 Row Slider",
+      "category": "Products"
+    }
+  ]
+}
+{% endschema %}

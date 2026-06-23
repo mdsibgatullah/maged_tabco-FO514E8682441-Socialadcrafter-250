@@ -1,0 +1,362 @@
+<style>
+  .nxt-mm-container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 9;
+  }
+  .nxt-mm-wrapper {
+    display: flex;
+    background: #404041; /* Match horizontal bar background */
+    position: relative;
+  }
+  
+  /* ALL CATEGORIES green block controller */
+  .nxt-mm-menu-toggle-wrapper {
+    width: 300px;
+    position: relative;
+  }
+  
+  .nxt-mm-title {
+    background: #fcc216;
+    color: #fff;
+    padding: 15px 15px;
+    font-weight: bold;
+    font-size: 14px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    height: 43px;
+    box-sizing: border-box;
+  }
+  .nxt-mm-title-icon {
+    display: inline-block;
+    width: 15px;
+    height: 14px;
+    border-top: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+    position: relative;
+  }
+  .nxt-mm-title-icon::after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #fff;
+  }
+
+  /* Hide the entire sidebar by default */
+  .nxt-mm-sidebar {
+    width: 300px;
+    background: #fff;
+    border-right: 1px solid #eee;
+    position: absolute;
+    top: 43px;
+    left: 0;
+    display: none; /* Initially Hidden */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+  
+  /* Show sidebar ONLY when hovering over the Toggle Wrapper (ALL CATEGORIES) */
+  .nxt-mm-menu-toggle-wrapper:hover .nxt-mm-sidebar {
+    display: block;
+  }
+
+  .nxt-mm-nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .nxt-mm-nav-item {
+    position: static;
+  }
+  .nxt-mm-nav-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 15px;
+    color: #333;
+    text-decoration: none;
+    font-size: 13px;
+    border-bottom: 1px solid #f9f9f9;
+    transition: background 0.2s;
+  }
+  .nxt-mm-nav-link-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .nxt-mm-col-icon {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+  }
+  .nxt-mm-arrow {
+    border: solid #666;
+    border-width: 0 1.5px 1.5px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(-45deg);
+  }
+  
+  .nxt-mm-nav-item:hover .nxt-mm-nav-link {
+    background: #eaeaea;
+    font-weight: bold;
+  }
+  
+  /* Mega Dropdown Content Area */
+  .nxt-mm-dropdown {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 300px;
+    width: calc(1400px - 300px); /* Matches exact width relative to container */
+    min-height: 100%;
+    background: #fff;
+    padding: 20px;
+    box-sizing: border-box;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    border-left: 1px solid #ddd;
+    box-shadow: 4px 4px 10px rgba(0,0,0,0.1);
+  }
+
+  /* Show the dropdown only on item hover */
+  .nxt-mm-nav-item:hover .nxt-mm-dropdown {
+    display: grid;
+  }
+
+  .nxt-mm-sub-block {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .nxt-mm-parent-link {
+    font-size: 14px;
+    font-weight: bold;
+    color: #000;
+    text-decoration: none;
+    margin-bottom: 5px;
+    display: block;
+  }
+  .nxt-mm-child-link {
+    font-size: 14px;
+    color: #666;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nxt-mm-child-link:hover {
+    color: #fcc216;
+  }
+  
+  /* Horizontal Menu Bar Items */
+  .nxt-mm-horizontal-menu {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background: #404041;
+    width: calc(100% - 300px);
+    height: 43px;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
+  .nxt-mm-horizontal-menu::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for clean look on mobile */
+  }
+  .nxt-mm-hor-item {
+    display: inline-block;
+  }
+  .nxt-mm-hor-item a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 0 15px;
+    text-transform: uppercase;
+    display: block;
+    line-height: 43px;
+  }
+  .nxt-mm-hor-item a:hover {
+    color: #fcc216;
+  }
+@media(max-width: 1026px){
+  .nxt-mm-container {
+    display: none ;
+  }
+}
+  /* --- RESPONSIVE MEDIA QUERIES --- */
+  @media screen and (max-width: 991px) {
+    .nxt-mm-wrapper {
+      flex-direction: column;
+    }
+    .nxt-mm-menu-toggle-wrapper {
+      width: 100%;
+    }
+    .nxt-mm-horizontal-menu {
+      width: 100%;
+    }
+    .nxt-mm-sidebar {
+      width: 100%;
+      position: static;
+      box-shadow: none;
+    }
+    .nxt-mm-dropdown {
+      position: static;
+      width: 100%;
+      grid-template-columns: repeat(2, 1fr);
+      box-shadow: none;
+      border-left: none;
+      border-top: 1px solid #eee;
+      padding: 15px;
+    }
+  }
+
+  @media screen and (max-width: 576px) {
+    .nxt-mm-dropdown {
+      grid-template-columns: 1fr;
+      gap: 15px;
+    }
+    .nxt-mm-title {
+      font-size: 13px;
+    }
+    .nxt-mm-hor-item a {
+      font-size: 11px;
+      padding: 0 10px;
+    }
+  }
+</style>
+
+<div class="nxt-mm-container">
+  <div class="nxt-mm-wrapper">
+    
+    <div class="nxt-mm-menu-toggle-wrapper">
+      <div class="nxt-mm-title">
+        <span class="nxt-mm-title-icon"></span>
+        {{ section.settings.menu_title }}
+      </div>
+      
+      <div class="nxt-mm-sidebar">
+        <ul class="nxt-mm-nav-list">
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'menu_item' -%}
+              
+              <li class="nxt-mm-nav-item" {{ block.shopify_attributes }}>
+                
+                <a href="{{ block.settings.item_url | default: '#' }}" class="nxt-mm-nav-link">
+                  <div class="nxt-mm-nav-link-left">
+                    {%- if block.settings.item_icon != blank -%}
+                      <img src="{{ block.settings.item_icon | image_url: width: 40 }}" alt="{{ block.settings.item_title }}" class="nxt-mm-col-icon" loading="lazy">
+                    {%- else -%}
+                      <span class="nxt-mm-col-icon" style="background:#ccc; display:inline-block; border-radius:50%;"></span>
+                    {%- endif -%}
+                    <span>{{ block.settings.item_title }}</span>
+                  </div>
+                  
+                  {%- assign submenu = linklists[block.settings.child_navigation] -%}
+                  {%- if submenu != blank and submenu.links.size > 0 -%}
+                    <i class="nxt-mm-arrow"></i>
+                  {%- endif -%}
+                </a>
+
+                {%- if submenu != blank and submenu.links.size > 0 -%}
+                  <div class="nxt-mm-dropdown">
+                    {%- for child_link in submenu.links -%}
+                      <div class="nxt-mm-sub-block">
+                        <a href="{{ child_link.url }}" class="nxt-mm-parent-link">{{ child_link.title }}</a>
+                        
+                        {%- if child_link.links != blank -%}
+                          {%- for grandchild_link in child_link.links -%}
+                            <a href="{{ grandchild_link.url }}" class="nxt-mm-child-link">{{ grandchild_link.title }}</a>
+                          {%- endfor -%}
+                        {%- endif -%}
+                      </div>
+                    {%- endfor -%}
+                  </div>
+                {%- endif -%}
+
+              </li>
+            {%- endif -%}
+          {%- endfor -%}
+        </ul>
+      </div>
+    </div>
+
+    <ul class="nxt-mm-horizontal-menu">
+      {%- assign hor_menu = linklists[section.settings.horizontal_navigation] -%}
+      {%- for link in hor_menu.links -%}
+        <li class="nxt-mm-hor-item">
+          <a href="{{ link.url }}">{{ link.title }}</a>
+        </li>
+      {%- endfor -%}
+    </ul>
+
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Next Mega Menu",
+  "settings": [
+    {
+      "type": "text",
+      "id": "menu_title",
+      "label": "Sidebar Title",
+      "default": "All Categories"
+    },
+    {
+      "type": "link_list",
+      "id": "horizontal_navigation",
+      "label": "Select Top Horizontal Menu",
+      "info": "This menu appears next to the green bar (e.g. Brands, Gaming Desktops)"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "menu_item",
+      "name": "Add Menu Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "item_icon",
+          "label": "Upload Custom Icon Image"
+        },
+        {
+          "type": "text",
+          "id": "item_title",
+          "label": "Menu Item Title",
+          "default": "Custom Menu Name"
+        },
+        {
+          "type": "url",
+          "id": "item_url",
+          "label": "Menu Item Link"
+        },
+        {
+          "type": "link_list",
+          "id": "child_navigation",
+          "label": "Select Submenu Dropdown",
+          "info": "Select a menu that contains sub-items to populate the mega multi-columns."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Next Mega Menu",
+      "blocks": [
+        {
+          "type": "menu_item"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

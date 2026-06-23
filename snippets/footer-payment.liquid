@@ -1,0 +1,57 @@
+to{% liquid
+  assign payment_margin_top = block.settings.payment_margin_top | append: 'px'
+  assign heading_payment = block.settings.heading_payment
+  assign payment_type = block.settings.payment_type
+  assign show_payment = block.settings.show_payment
+%}
+<div class="footer-block__list-payment footer__column-item footer__payment" style="--margin-top: {{ payment_margin_top  }}">
+  {%- if heading_payment != blank -%}
+    <h2 class="footer-block__heading">{{- heading_payment | escape -}}</h2>
+  {%- endif -%} <span class="visually-hidden">{{ 'sections.footer.payment' | t }}</span>
+  <ul class="list list-payment clearfix" role="list">
+    {%- if payment_type == 'default' -%}
+      {%- for type in shop.enabled_payment_types -%}
+        <li class="list-payment__item">{{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}</li>
+      {%- endfor -%}
+    {%- else -%}
+      <li class="list-payment__item visa">
+          <svg class="icon icon--full-color" viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg" role="img" width="38" height="24" aria-labelledby="pi-visa">
+          <title id="pi-visa">Cash on Delivery</title><path opacity=".07" 
+          d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3z"></path>
+          <path fill="#fff" d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32"></path>
+            <text x="50%" y="45%" text-anchor="middle" fill="black"
+                  font-family="Arial, sans-serif" font-size="6" font-weight="bold">
+              CASH ON
+            </text>
+            <text x="50%" y="75%" text-anchor="middle" fill="black"
+                  font-family="Arial, sans-serif" font-size="6" font-weight="bold">
+              DELIVERY
+            </text>
+          </svg>
+      </li>
+      {% assign payment_string = 'visa,master,maestro,kdot,american_express,apple_pay,bitcoin,dankort,diners_club,discover,paypal,dogecoin,dwolla,forbrugsforeningen,jcb,litecoin,afterpay,google_pay,ideal,klarna,klarna-pay-later,shopify_pay,sofort' %}
+      {%- assign methods = payment_string | split: ',' -%}
+      {%- for method in methods -%}
+        {%- assign show_current_method = method | prepend: 'show_payment_' -%}
+        {%- if block.settings[show_current_method] -%}
+          <li class="list-payment__item {{method}}">
+            {%- if method == 'american_express' -%}
+              <svg class="icon icon--full-color" xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 38 24" aria-labelledby="pi-american_express"><title id="pi-american_express">American Express</title><g fill="none"><path fill="#000" d="M35,0 L3,0 C1.3,0 0,1.3 0,3 L0,21 C0,22.7 1.4,24 3,24 L35,24 C36.7,24 38,22.7 38,21 L38,3 C38,1.3 36.6,0 35,0 Z" opacity=".07"></path><path fill="#006FCF" d="M35,1 C36.1,1 37,1.9 37,3 L37,21 C37,22.1 36.1,23 35,23 L3,23 C1.9,23 1,22.1 1,21 L1,3 C1,1.9 1.9,1 3,1 L35,1"></path><path fill="#FFF" d="M8.971,10.268 L9.745,12.144 L8.203,12.144 L8.971,10.268 Z M25.046,10.346 L22.069,10.346 L22.069,11.173 L24.998,11.173 L24.998,12.412 L22.075,12.412 L22.075,13.334 L25.052,13.334 L25.052,14.073 L27.129,11.828 L25.052,9.488 L25.046,10.346 L25.046,10.346 Z M10.983,8.006 L14.978,8.006 L15.865,9.941 L16.687,8 L27.057,8 L28.135,9.19 L29.25,8 L34.013,8 L30.494,11.852 L33.977,15.68 L29.143,15.68 L28.065,14.49 L26.94,15.68 L10.03,15.68 L9.536,14.49 L8.406,14.49 L7.911,15.68 L4,15.68 L7.286,8 L10.716,8 L10.983,8.006 Z M19.646,9.084 L17.407,9.084 L15.907,12.62 L14.282,9.084 L12.06,9.084 L12.06,13.894 L10,9.084 L8.007,9.084 L5.625,14.596 L7.18,14.596 L7.674,13.406 L10.27,13.406 L10.764,14.596 L13.484,14.596 L13.484,10.661 L15.235,14.602 L16.425,14.602 L18.165,10.673 L18.165,14.603 L19.623,14.603 L19.647,9.083 L19.646,9.084 Z M28.986,11.852 L31.517,9.084 L29.695,9.084 L28.094,10.81 L26.546,9.084 L20.652,9.084 L20.652,14.602 L26.462,14.602 L28.076,12.864 L29.624,14.602 L31.499,14.602 L28.987,11.852 L28.986,11.852 Z"></path></g></svg>
+            {% elsif method == 'kdot' %}
+              <svg version="1.1" id="Layer_1" class="icon icon--full-color" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 50 37" style="enable-background:new 0 0 50 37;" xml:space="preserve"> <style type="text/css"> .st0{fill:#0872B9;} .st1{fill:#FFFFFF;} .st2{fill:#FBED1F;} </style> <g> <g> <g> <rect x="0.5" y="27" class="st0" width="49" height="9.2"></rect> <rect x="0.5" y="0.8" class="st0" width="49" height="9.2"></rect> </g> <rect x="0.5" y="10.8" class="st0" width="49" height="15.5"></rect> <g> <path class="st1" d="M46.6,4h-4.1l0.3,0.5h4.1l1.4,0.9c0,0,0.3,0.3,0.1,0.5l-1.6,1.2H39l-0.6-0.8v2.2h-9.7V4.2h7.1v2.2h-4.1v0.8 h4.8h0.2V4.3h2.7l1.6,1.6h4.6V5.1H41l-2.2-2.2h7.1L46.6,4z"></path> <rect x="39.7" y="7.7" class="st1" width="1" height="0.9"></rect> <rect x="42.1" y="7.7" class="st1" width="1" height="0.9"></rect> <rect x="6.4" y="3.4" class="st1" width="1.4" height="1.3"></rect> <rect x="8.2" y="3.4" class="st1" width="1.4" height="1.3"></rect> <rect x="19.7" y="3.4" class="st1" width="1.4" height="1.3"></rect> <rect x="22.8" y="5.5" class="st1" width="3.6" height="1.3"></rect> <polygon class="st1" points="19,5 21.5,5 21.5,7.9 2.9,7.9 1.5,6.1 3.9,2.9 5.8,2.9 4.4,6.1 16.7,6.1 16.7,5.1 18.4,5.1 18.4,6.1 19,6.1 			"></polygon> </g> <g> <g> <path class="st1" d="M11.4,34.4H9.8v-2.7c0-0.6,0-0.9-0.1-1.1c-0.1-0.2-0.2-0.3-0.3-0.4c-0.1-0.1-0.3-0.1-0.5-0.1 c-0.3,0-0.5,0.1-0.7,0.2c-0.2,0.1-0.4,0.3-0.4,0.5C7.7,31,7.6,31.4,7.6,32v2.4H6.1v-5.3h1.4v0.8C8,29.3,8.7,29,9.4,29 c0.3,0,0.6,0.1,0.9,0.2c0.3,0.1,0.5,0.3,0.6,0.4c0.1,0.2,0.2,0.4,0.3,0.6c0.1,0.2,0.1,0.5,0.1,0.9V34.4z"></path> <path class="st1" d="M25.8,32.7l1.5,0.2c-0.2,0.5-0.5,0.9-0.9,1.2c-0.4,0.3-1,0.4-1.6,0.4c-1,0-1.8-0.3-2.2-0.9 c-0.4-0.5-0.6-1.1-0.6-1.8c0-0.9,0.3-1.6,0.8-2.1c0.5-0.5,1.1-0.7,1.9-0.7c0.9,0,1.5,0.3,2,0.8c0.5,0.5,0.7,1.3,0.7,2.4h-3.8 c0,0.4,0.1,0.7,0.4,1c0.2,0.2,0.5,0.3,0.9,0.3c0.2,0,0.4-0.1,0.6-0.2C25.6,33.2,25.7,33,25.8,32.7z M25.9,31.3 c0-0.4-0.1-0.7-0.3-0.9c-0.2-0.2-0.5-0.3-0.8-0.3c-0.3,0-0.6,0.1-0.8,0.3c-0.2,0.2-0.3,0.5-0.3,0.9H25.9z"></path> <path class="st1" d="M43.8,29.1v1.1h-1v2.1c0,0.4,0,0.7,0,0.8c0,0.1,0.1,0.1,0.1,0.2c0.1,0,0.2,0.1,0.3,0.1c0.1,0,0.3,0,0.6-0.1 l0.1,1.1c-0.4,0.1-0.8,0.2-1.2,0.2c-0.3,0-0.5,0-0.7-0.1c-0.2-0.1-0.4-0.2-0.5-0.3c-0.1-0.1-0.2-0.3-0.2-0.5 c0-0.2-0.1-0.5-0.1-1v-2.3h-0.7v-1.1h0.7v-1.1l1.5-0.8v1.9H43.8z"></path> </g> </g> <g> <g> <g> <rect x="7.1" y="12" class="st2" width="11.6" height="12.4"></rect> </g> <polygon class="st2" points="18.3,17.5 26.9,12.1 42.2,12.1 33.8,17.5 42.9,24.2 26.5,24.2 18.5,18 				"></polygon> </g> </g> </g> </g> </svg>
+            {%- else -%}
+              {{ method | payment_type_svg_tag: class: 'icon icon--full-color' }}
+            {%- endif -%}
+          </li>
+        {%- endif -%}
+      {%- endfor -%}
+    {%- endif -%}   
+
+    <!-- <li class="list-payment__item cod">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon--full-color" width="60" height="45" viewBox="0 0 50 37">
+                                                                    <text id="Cash_On_Delivery" data-name="Cash On
+                                                                  Delivery" transform="translate(34 12)" fill="#FFFFFF" font-size="9" font-family="Montserrat-ExtraBold, Montserrat" font-weight="800" letter-spacing="0.05em"><tspan x="-31.248" y="0">CASH ON</tspan><tspan x="-33.846" y="12">DELIVERY</tspan></text>
+                                                                </svg>
+                            </li> -->
+  </ul>
+</div>

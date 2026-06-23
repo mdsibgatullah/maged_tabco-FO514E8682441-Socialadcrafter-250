@@ -1,0 +1,294 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "footer",
+  "name": "Footer Group",
+  "sections": {
+    "newsletter_znDgin": {
+      "type": "newsletter",
+      "blocks": {
+        "newsletter_KDWiD6": {
+          "type": "newsletter",
+          "settings": {
+            "section_title": "",
+            "section_title_font_size": 18,
+            "section_title_font_size_mb": 16,
+            "section_title_font_weight": "700",
+            "section_title_text_transform": "none",
+            "section_title_font_style": "normal",
+            "section_title_color": "#ffffff",
+            "mg_bottom_title": 12,
+            "mg_bottom_title_mb": 12,
+            "section_description": "",
+            "section_description_font_size": 16,
+            "section_description_font_size_mb": 14,
+            "section_description_font_weight": "500",
+            "section_description_color": "#191919",
+            "margin_bottom_des": 0,
+            "des_line_height": 20,
+            "show_input_field": true,
+            "input_style": "style_1",
+            "input_width": 400,
+            "input_border_radius": 0,
+            "input_text_font_size": 13,
+            "button_text": "Subscribe",
+            "button_font_size": 16,
+            "button_width": 150,
+            "button_text_color": "#ffffff",
+            "button_border_color": "#fcc216",
+            "button_background_color": "#fcc216",
+            "button_gradient_color": "",
+            "button_text_color_hover": "#fff",
+            "button_border_color_hover": "#fcc216",
+            "button_background_color_hover": "#404041",
+            "button_gradient_color_hover": "",
+            "button_text_transform": "capitalize",
+            "button_font_weight": "600",
+            "input_placeholder": "Your email address",
+            "input_placeholder_color": "#f6f6f6",
+            "input_background_color": "rgba(0,0,0,0)",
+            "input_border_color": "#f6f6f6",
+            "form_gap": 15,
+            "newsletter_content_direction": "row",
+            "newsletter_form_justify_content": "center",
+            "input_width_behavior": "restricted"
+          }
+        },
+        "social_media_p8wfCV": {
+          "type": "social_media",
+          "settings": {
+            "social_block_width": "40",
+            "social_heading": "Stay Connected With Us",
+            "enable_bg_social": false,
+            "social_margin_top": 0
+          }
+        }
+      },
+      "block_order": [
+        "newsletter_KDWiD6",
+        "social_media_p8wfCV"
+      ],
+      "custom_css": [],
+      "name": "t:sections.newsletter.name",
+      "settings": {
+        "container": "1770",
+        "padding_full_width": 10,
+        "background": "#404041",
+        "background_gradient": "",
+        "section_text_align": "left",
+        "justify_section_content": "space-between",
+        "section_item_distance": 20,
+        "enable_social_media_below": false,
+        "mg_top_desktop": 50,
+        "mg_top_tablet": 50,
+        "mg_top_mobile": 50,
+        "mg_bottom_desktop": 30,
+        "mg_bottom_tablet": 30,
+        "mg_bottom_mobile": 30
+      }
+    },
+    "footer-1": {
+      "type": "footer-01",
+      "blocks": {
+        "text_rKwmMF": {
+          "type": "text",
+          "settings": {
+            "custom_width": "30",
+            "heading": "",
+            "logo": "shopify://shop_images/Gemini_Generated_Image_gnsxj1gnsxj1gnsx-Photoroom.png",
+            "logo_margin_bottom": 10,
+            "subtext": "<p>At BE3AH, we are committed to bringing quality, innovation, and convenience to every home. Our carefully selected collection includes electronics, home appliances, beauty products, gaming accessories, fitness equipment, and lifestyle essentials from trusted brands.</p>",
+            "address_icon": "point_icon",
+            "show_address_icon": false,
+            "address_text": "",
+            "phone_icon": "message_icon",
+            "show_phone_icon": false,
+            "phone_text": "",
+            "email_icon": "envelope_icon",
+            "show_email_icon": false,
+            "email_text": "",
+            "icon_size": 16,
+            "icon_color": "",
+            "content_spacing": 1,
+            "enable_custom_position_icon": false,
+            "show_social": false,
+            "social_heading": "",
+            "enable_bg_social": false,
+            "social_margin_top": 35,
+            "social_icon_width": 12,
+            "social_icon_padding": 12,
+            "social_icon_border_width": 1,
+            "social_icon_margin_right": 15,
+            "social_color": "#282828",
+            "social_border_color": "#ffffff",
+            "social_background_color": "#ffffff",
+            "social_background_color_gradient": "",
+            "social_color_hover": "#282828",
+            "social_border_color_hover": "#ffffff",
+            "social_background_color_hover": "#ffffff",
+            "social_background_color_gradient_hover": "",
+            "social_box_hover_color": "#ffffff",
+            "mg_bottom": 0
+          }
+        },
+        "link_list_LKLwtd": {
+          "type": "link_list",
+          "settings": {
+            "custom_width": "20",
+            "heading": "Shop",
+            "menu": "main-menu",
+            "mg_bottom": 10
+          }
+        },
+        "a6e74cd6-bd47-4ada-98b5-15e28b94aef6": {
+          "type": "link_list",
+          "settings": {
+            "custom_width": "20",
+            "heading": "Information",
+            "menu": "information",
+            "mg_bottom": 10
+          }
+        },
+        "text_j3zTPN": {
+          "type": "text",
+          "settings": {
+            "custom_width": "30",
+            "heading": "BE3AH",
+            "logo_margin_bottom": 28,
+            "subtext": "",
+            "address_icon": "point_icon",
+            "show_address_icon": true,
+            "address_text": "<p>Al Rehab Complex, 6th Floor, Office 608, Tunisia Street, Hawally, Kuwait </p><p></p>",
+            "phone_icon": "phone_icon",
+            "show_phone_icon": true,
+            "phone_text": "<p><strong>Phone:</strong>+965 2262 2683</p><p><strong>Mobile:</strong> +965 9222 4031</p><p></p>",
+            "email_icon": "envelope_icon",
+            "show_email_icon": true,
+            "email_text": "<p><a href=\"mailto:hello@be3ah.com\" target=\"_blank\" title=\"mailto:hello@be3ah.com\"><strong>hello@be3ah.com</strong></a></p><p><br/>Customer Support: Sun – Thu | 9 AM – 6 PM</p>",
+            "icon_size": 16,
+            "icon_color": "#ffffff",
+            "content_spacing": 1,
+            "enable_custom_position_icon": false,
+            "show_social": false,
+            "social_heading": "",
+            "enable_bg_social": false,
+            "social_margin_top": 35,
+            "social_icon_width": 25,
+            "social_icon_padding": 12,
+            "social_icon_border_width": 1,
+            "social_icon_margin_right": 10,
+            "social_color": "#060606",
+            "social_border_color": "#ffffff",
+            "social_background_color": "#ffe636",
+            "social_background_color_gradient": "",
+            "social_color_hover": "#fcc216",
+            "social_border_color_hover": "#ffffff",
+            "social_background_color_hover": "#ffffff",
+            "social_background_color_gradient_hover": "",
+            "social_box_hover_color": "#ffffff",
+            "mg_bottom": 0
+          }
+        },
+        "41adb6e5-e71d-422b-a1e1-d2034c83869c": {
+          "type": "footer_bottom",
+          "settings": {
+            "pdtop_footer_bottom": 20,
+            "pdbottom_footer_bottom": 20,
+            "border_top": false,
+            "footer_bottom_color": "#000000",
+            "border_top_color": "#282828",
+            "footer_bottom_bg": "#fcc216",
+            "footer_bottom_bg_gradient": "",
+            "show_copyright": true,
+            "show_shop_name": true,
+            "enable_layout_grid": true,
+            "text_fontsize": 14,
+            "copyright_content": "<p>© 2026 Be3ah الكويت | Operated by Umark For Electronics</p>",
+            "copyright_content_color": "#000000",
+            "shop_name": "",
+            "show_payment": false,
+            "payment_margin_top": 10,
+            "payment_type": "custom",
+            "show_payment_visa": true,
+            "show_payment_master": true,
+            "show_payment_maestro": false,
+            "show_payment_kdot": true,
+            "show_payment_american_express": false,
+            "show_payment_apple_pay": true,
+            "show_payment_bitcoin": false,
+            "show_payment_dankort": false,
+            "show_payment_diners_club": false,
+            "show_payment_discover": false,
+            "show_payment_paypal": false,
+            "show_payment_dogecoin": false,
+            "show_payment_dwolla": false,
+            "show_payment_forbrugsforeningen": false,
+            "show_payment_jcb": false,
+            "show_payment_litecoin": false,
+            "show_payment_afterpay": false,
+            "show_payment_google_pay": true,
+            "show_payment_ideal": false,
+            "show_payment_klarna": false,
+            "show_payment_klarna-pay-later": false,
+            "show_payment_shopify_pay": false,
+            "show_payment_sofort": false
+          }
+        }
+      },
+      "block_order": [
+        "text_rKwmMF",
+        "link_list_LKLwtd",
+        "a6e74cd6-bd47-4ada-98b5-15e28b94aef6",
+        "text_j3zTPN",
+        "41adb6e5-e71d-422b-a1e1-d2034c83869c"
+      ],
+      "settings": {
+        "container": "full",
+        "padding_full_width": 20,
+        "type_footer_heading": "font_1",
+        "type_footer_heading_font_size": 15,
+        "type_footer_heading_line_height": 22,
+        "type_footer_heading_font_weight": "600",
+        "type_footer_heading_text_transform": "uppercase",
+        "type_footer_heading_margin_bottom": 12,
+        "type_footer_heading_letter_spacing": ".05em",
+        "type_footer_link": "font_1",
+        "type_footer_link_font_size": 16,
+        "type_footer_link_font_weight": "400",
+        "type_footer_link_text_transform": "capitalize",
+        "type_footer_link_line_height": 28,
+        "type_footer_link_letter_spacing": ".02em",
+        "enable_border_footer_top": false,
+        "border_footer_top_color": "#282828",
+        "pdtop_footer_top": 35,
+        "pdbottom_footer_top": 40,
+        "footer_top_bg": "#404041",
+        "footer_top_bg_gradient": "",
+        "show_footer_top_bg_img": false,
+        "footer_top_bg_position_x": "center",
+        "footer_top_bg_position_y": "center",
+        "footer_top_bg_repeat": "no-repeat",
+        "footer_top_bg_attachment": "fixed",
+        "footer_top_bg_size": "cover",
+        "footer_top_text_align": "left",
+        "footer_top_title_color": "#ffffff",
+        "footer_top_color_link": "#f6f6f6",
+        "footer_top_color_link_hover": "#ffffff",
+        "show_border_item": false,
+        "space_border_item": 65,
+        "footer_border_item": "#808080"
+      }
+    }
+  },
+  "order": [
+    "newsletter_znDgin",
+    "footer-1"
+  ]
+}

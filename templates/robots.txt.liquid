@@ -1,0 +1,27 @@
+{% for group in robots.default_groups %}
+  {{ group.user_agent }}
+
+  {% for rule in group.rules %}
+
+    {% assign hide_rule = false %}
+
+    {% if rule.directive == 'Disallow' and rule.value contains '/policies/' %}
+      {% assign hide_rule = true %}
+    {% endif %}
+
+    {% if rule.directive == 'Disallow' and rule.value == '/*/collections/*+*' %}
+      {% assign hide_rule = true %}
+    {% endif %}
+
+    {% unless hide_rule %}
+      {{ rule }}
+    {% endunless %}
+
+  {% endfor %}
+
+  {% if group.user_agent.value == '*' %}
+    Disallow: /*?q=*
+  {% endif %}
+
+  {{ group.sitemap }}
+{% endfor %}

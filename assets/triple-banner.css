@@ -1,0 +1,105 @@
+.triple-banner-section {
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* Full-bleed: break out of theme's centered content wrapper */
+.triple-banner-section.full-width {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+
+/* Desktop default */
+.triple-banner-section {
+  padding-left: var(--pad-desktop, 60px);
+  padding-right: var(--pad-desktop, 60px);
+}
+
+.triple-banner-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--banner-gap, 16px);
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+.triple-banner-item {
+  display: block;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #f4f4f4;
+  flex: 1 1 602px;
+  max-width: 602px;
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.triple-banner-item.has-shadow {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+.triple-banner-item.has-shadow:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  transform: translateY(-2px);
+}
+
+.triple-banner-image-wrap {
+  position: relative;
+  width: 100%;
+  /* Fixed 602x361 design ratio so any uploaded image (any size/orientation)
+     renders in the same consistent frame across all 3 banners */
+  aspect-ratio: 602 / 361;
+  overflow: hidden;
+}
+
+.triple-banner-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.triple-banner-item:hover .triple-banner-img {
+  transform: scale(1.03);
+}
+
+.triple-banner-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.triple-banner-placeholder svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Laptop / Tablet */
+@media screen and (max-width: 989px) {
+  .triple-banner-section {
+    padding-left: var(--pad-laptop, 30px);
+    padding-right: var(--pad-laptop, 30px);
+  }
+}
+
+/* Mobile - stack vertically, each banner full width but keeps the same 602:361 ratio */
+@media screen and (max-width: 749px) {
+  .triple-banner-section {
+    padding-left: var(--pad-mobile, 16px);
+    padding-right: var(--pad-mobile, 16px);
+  }
+  .triple-banner-item {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}

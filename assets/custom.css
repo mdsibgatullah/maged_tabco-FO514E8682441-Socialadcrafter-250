@@ -1,0 +1,73 @@
+/*// =============================================================================
+// Ella Custom CSS - Customize The Style For Layout
+// =============================================================================
+
+// =============================================================================
+//
+// IMPORTANT DISCLAIMER
+// Shopify is notifying shop owners about the need to convert scss files to css files.
+// Please use only CSS to style the layout.
+//
+// =============================================================================*/
+
+.header__icon--account .header-advanced-textRight, .header__icon--account .header-advanced-textRight span {
+    display: none !important;
+} 
+#shopify-section-sections--23932336898212__footer-1 > footer > div.footer__content-top > div > div > div:nth-child(7) > div > div > ul > li:nth-child(1) > a{
+  background: black;
+    color: white;
+    padding: 10px 25px;
+    margin-bottom: 10px;
+}
+#shopify-section-sections--23932336898212__footer-1 > footer > div.footer__content-top > div > div > div:nth-child(7) > div > div > ul > li:nth-child(2) > a{
+    background: #fcc216;
+    color: black;
+    padding: 10px 25px;
+    margin-bottom: 10px;
+}
+
+/* Custom CSS */
+/* h2.product-categories-heading {
+    font-weight: 500 !important;
+} */
+
+/* .footer-block__list-social {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: 14px !important;
+  flex-wrap: nowrap !important;
+}
+
+.footer-block__list-social .footer-block__heading {
+  margin: 0 !important;
+  white-space: nowrap;
+}
+
+.footer-block__list-social .item.clearfix {
+  display: flex !important;
+  align-items: center !important;
+}
+
+.footer-block__list-social .list-social {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: 8px !important;
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.footer-block__list-social .list-social__link {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-block__list-social .list-social__link svg {
+  width: 16px;
+  height: 16px;
+} */

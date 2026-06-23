@@ -1,0 +1,504 @@
+<div class="new-arrivals-section">
+  {% if section.settings.heading != blank %}
+    <div class="new-arrivals-heading-wrap">
+      <h2 class="new-arrivals-heading">{{ section.settings.heading }}</h2>
+      <hr class="new-arrivals-heading-line">
+    </div>
+  {% endif %}
+
+  {% assign collection = collections[section.settings.collection] %}
+
+  <div class="new-arrivals-slider-wrap">
+    <button type="button" class="na-arrow na-arrow-left" aria-label="Previous">&#8249;</button>
+
+    <div class="new-arrivals-slider" id="na-slider-{{ section.id }}">
+      {% if collection != blank %}
+        {% for product in collection.products limit: section.settings.products_to_show %}
+          {% render 'new-arrival-card', product: product, section: section %}
+        {% endfor %}
+      {% else %}
+        {% for i in (1..4) %}
+          <div class="na-card na-card-placeholder">
+            <div class="na-card-image-ph"></div>
+            <p>Select a collection to show products</p>
+          </div>
+        {% endfor %}
+      {% endif %}
+    </div>
+
+    <button type="button" class="na-arrow na-arrow-right" aria-label="Next">&#8250;</button>
+  </div>
+</div>
+
+{% style %}
+  .new-arrivals-section {
+    max-width: {% if section.settings.full_width %}100%{% else %}{{ section.settings.container_width | default: 1300 }}px{% endif %};
+    margin: 0 auto;
+    padding: {{ section.settings.padding_top | default: 20 }}px {{ section.settings.padding_horizontal | default: 15 }}px {{ section.settings.padding_bottom | default: 20 }}px;
+    border: 1px solid {{ section.settings.section_border_color | default: '#dcdcdc' }};
+    box-sizing: border-box;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  }
+
+  .new-arrivals-heading-wrap {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  .new-arrivals-heading {
+    font-size: {{ section.settings.heading_size | default: 20 }}px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    margin: 0;
+    color: {{ section.settings.heading_color | default: '#2b3b5c' }};
+    text-transform: uppercase;
+  }
+
+  .new-arrivals-heading-line {
+    margin: 30px 0 0;
+    border: none;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    color: #E9EAEC !important;
+  }
+
+  .new-arrivals-slider-wrap {
+    position: relative;
+  }
+
+  .na-arrow {
+    position: absolute;
+    top: 50%;
+    color: white;
+    transform: translateY(-50%);
+    border: 1px solid #e0e0e0;
+    background-color: #FCC216 !important;
+    width: 36px;
+    height: 96px;
+    flex-shrink: 0;
+    font-size: 36px;
+    line-height: 1;
+    cursor: pointer;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  }
+
+  .new-arrivals-slider-wrap:hover .na-arrow {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .na-arrow:hover { background: #f5f5f5; }
+  .na-arrow-left { left: 8px; }
+  .na-arrow-right { right: 8px; }
+
+  .new-arrivals-slider {
+    display: flex;
+    gap: 16px;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    padding: 4px 4px 12px;
+    width: 100%;
+    cursor: grab;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    touch-action: pan-y;
+  }
+
+  .new-arrivals-slider.na-dragging {
+    cursor: grabbing;
+    scroll-snap-type: none;
+    scroll-behavior: auto;
+  }
+
+  .new-arrivals-slider::-webkit-scrollbar {
+    display: none;
+  }
+
+ .na-card {
+  flex: 0 0 calc((100% - ({{ section.settings.products_visible_desktop | default: 6 }} - 1) * 16px) / {{ section.settings.products_visible_desktop | default: 6 }});
+  scroll-snap-align: start;
+  border: 1px solid #e5e5e5;
+  border-radius: 4px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.10);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.na-card:hover {
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+  .na-card-image-link {
+    display: block;
+    margin-bottom: 14px;
+  }
+
+  .na-card-image {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
+  }
+
+  .na-card-image-ph {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background: #f1f1f1;
+    border-radius: 4px;
+  }
+
+  .na-card-title {
+    font-size: 14px;
+    color: #1a1a1a;
+    text-decoration: none;
+    margin: 0 0 6px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.3;
+    min-height: 36.4px;
+  }
+
+  .na-card-title:hover {
+    color: #FCC216;
+  }
+
+ 
+  .na-card-vendor {
+    font-size: 12px;
+    color: #888;
+    margin: 0 0 8px;
+  }
+
+  .na-card-price {
+    font-size: 16px;
+    font-weight: 700;
+    color: {{ section.settings.price_color | default: '#1f8a4c' }};
+    margin: 0 0 10px;
+  }
+
+  .na-card-banner-wrap {
+    width: 100%;
+    /* padding: {{ section.settings.card_banner_padding | default: 8 }}px; */
+    margin-bottom: 12px;
+    box-sizing: border-box;
+  }
+
+  .na-card-banner-wrap img {
+    display: block;
+    border-radius: 4px;
+    padding: 6px 8px;
+    width: auto;
+    height: 100%;
+    background-color: #f4f9f5;
+    border: 1px solid #e1efe4;
+  }
+
+  .na-add-to-cart {
+    margin-top: auto;
+    width: 100%;
+    box-sizing: border-box;
+    background: {{ section.settings.button_color | default: '#1f8a4c' }};
+    color: #fff;
+    border: none;
+    border-radius: 0 0 4px 4px;
+    padding: 12px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .na-add-to-cart:hover {
+    opacity: 0.9;
+  }
+
+  .na-card-placeholder {
+    align-items: center;
+    justify-content: center;
+    color: #999;
+    font-size: 13px;
+    text-align: center;
+  }
+
+  @media screen and (max-width: 1024px) {
+    .na-card {
+      flex: 0 0 calc((100% - ({{ section.settings.products_visible_tablet | default: 3 }} - 1) * 16px) / {{ section.settings.products_visible_tablet | default: 3 }});
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    .na-card {
+      flex: 0 0 calc((100% - ({{ section.settings.products_visible_mobile | default: 2 }} - 1) * 16px) / {{ section.settings.products_visible_mobile | default: 2 }});
+    }
+  }
+{% endstyle %}
+
+<script>
+  (function() {
+    var sliderId = 'na-slider-{{ section.id }}';
+    var slider = document.getElementById(sliderId);
+    var wrap = slider ? slider.closest('.new-arrivals-slider-wrap') : null;
+    if (!slider || !wrap) return;
+    var leftBtn = wrap.querySelector('.na-arrow-left');
+    var rightBtn = wrap.querySelector('.na-arrow-right');
+
+    function getScrollAmount() {
+      var firstCard = slider.querySelector('.na-card');
+      if (!firstCard) return 300;
+      return firstCard.getBoundingClientRect().width + 16;
+    }
+
+    leftBtn.addEventListener('click', function() {
+      slider.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
+    });
+    rightBtn.addEventListener('click', function() {
+      slider.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
+    });
+
+    // Mouse drag-to-scroll
+    var isDown = false;
+    var startX = 0;
+    var startScroll = 0;
+    var moved = false;
+
+    slider.addEventListener('mousedown', function(e) {
+      isDown = true;
+      moved = false;
+      slider.classList.add('na-dragging');
+      startX = e.pageX;
+      startScroll = slider.scrollLeft;
+    });
+
+    window.addEventListener('mouseup', function() {
+      isDown = false;
+      slider.classList.remove('na-dragging');
+    });
+
+    window.addEventListener('mouseleave', function() {
+      isDown = false;
+      slider.classList.remove('na-dragging');
+    });
+
+    slider.addEventListener('mousemove', function(e) {
+      if (!isDown) return;
+      e.preventDefault();
+      var dx = e.pageX - startX;
+      if (Math.abs(dx) > 5) moved = true;
+      slider.scrollLeft = startScroll - dx;
+    });
+
+    // Prevent link/button click right after a drag
+    slider.addEventListener('click', function(e) {
+      if (moved) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+    }, true);
+
+    // Touch drag-to-scroll (mobile, since native horizontal scroll is disabled)
+    var touchStartX = 0;
+    var touchStartScroll = 0;
+    var touchMoved = false;
+
+    slider.addEventListener('touchstart', function(e) {
+      touchMoved = false;
+      touchStartX = e.touches[0].pageX;
+      touchStartScroll = slider.scrollLeft;
+    }, { passive: true });
+
+    slider.addEventListener('touchmove', function(e) {
+      var dx = e.touches[0].pageX - touchStartX;
+      if (Math.abs(dx) > 5) touchMoved = true;
+      slider.scrollLeft = touchStartScroll - dx;
+    }, { passive: true });
+
+    slider.addEventListener('click', function(e) {
+      if (touchMoved) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+    }, true);
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "New arrivals slider",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "NEW ARRIVALS"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Heading font size",
+      "min": 14,
+      "max": 36,
+      "step": 1,
+      "default": 20
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#2b3b5c"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "label": "Number of products to display",
+      "info": "Only this many products from the collection will load in the slider (collection can have 1000+ products, but loading all of them would slow the page down).",
+      "min": 2,
+      "max": 50,
+      "step": 1,
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "products_visible_desktop",
+      "label": "Products visible at once (desktop)",
+      "min": 3,
+      "max": 8,
+      "step": 1,
+      "default": 6
+    },
+    {
+      "type": "range",
+      "id": "products_visible_tablet",
+      "label": "Products visible at once (tablet)",
+      "min": 2,
+      "max": 5,
+      "step": 1,
+      "default": 3
+    },
+    {
+      "type": "range",
+      "id": "products_visible_mobile",
+      "label": "Products visible at once (mobile)",
+      "min": 1,
+      "max": 3,
+      "step": 1,
+      "default": 2
+    },
+    {
+      "type": "color",
+      "id": "price_color",
+      "label": "Price color",
+      "default": "#1f8a4c"
+    },
+    {
+      "type": "color",
+      "id": "button_color",
+      "label": "Add to cart button color",
+      "default": "#1f8a4c"
+    },
+    {
+      "type": "header",
+      "content": "Card banner image"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_card_banner",
+      "label": "Show banner image on card",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "card_banner_image",
+      "label": "Banner image"
+    },
+    {
+      "type": "range",
+      "id": "card_banner_padding",
+      "label": "Banner image padding (px)",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "default": 8
+    },
+    {
+      "type": "header",
+      "content": "Section layout"
+    },
+    {
+      "type": "color",
+      "id": "section_border_color",
+      "label": "Section border color",
+      "default": "#dcdcdc"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Full width section",
+      "info": "When enabled, the section stretches to 100% of screen width and the max width setting below is ignored.",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "container_width",
+      "label": "Max section width (px)",
+      "min": 900,
+      "max": 2220,
+      "step": 20,
+      "default": 1300
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top padding",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "padding_horizontal",
+      "label": "Horizontal padding",
+      "min": 0,
+      "max": 80,
+      "step": 5,
+      "default": 20
+    }
+  ],
+  "presets": [
+    {
+      "name": "New arrivals slider"
+    }
+  ]
+}
+{% endschema %}

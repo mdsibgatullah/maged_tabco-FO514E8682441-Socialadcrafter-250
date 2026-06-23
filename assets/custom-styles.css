@@ -1,0 +1,53 @@
+#shopify-section-template--24500732199076__new_arrivals_slider_a873VL{
+    padding-bottom: 40px !important;
+}
+.section-block-template--24500732199076__spotlight_block_UBThYX .container-full{
+    
+}
+#shopify-section-sections--24500734066852__next_mega_menu_M4NYA4{
+    background: #404041 !important;
+}
+#shopify-section-sections--24500734066852__f32db78d-5bbc-484d-b86f-faab3cc4c860{
+    display: none !important;
+}
+/* @media(max-width: 1020px){
+    #shopify-section-sections--24500734066852__f32db78d-5bbc-484d-b86f-faab3cc4c860{
+        display: block !important;
+    }
+} */
+
+.footer-block__list-social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 60px !important;
+  flex-wrap: nowrap !important;
+}
+.footer-block__list-social .footer-block__heading {
+  margin: 0;
+}
+.footer-block__list-social .list-social {
+  display: flex;
+  align-items: center;
+  /* gap: 10px; */
+}
+.footer-block__list-social .list-social__link {
+  background-color: #fcc216 !important;
+  border-radius: 50%;
+}
+
+.footer-block__list-social .list-social__link svg,
+.footer-block__list-social .list-social__link svg path {
+  fill: white !important;
+}
+
+@media(max-width: 769px){
+  .footer-block__list-social{
+    display: block !important;
+    text-align: center !important;
+  }
+  .footer-block__list-social .list-social{
+    
+    justify-content: center !important;
+  }
+}

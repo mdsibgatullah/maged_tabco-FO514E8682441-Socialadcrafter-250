@@ -1,0 +1,335 @@
+<style>
+#shopify-section-sections--25547926372619__custom_mega_menu_xnnFAc .dmm-main-container {
+  display: flex; 
+  gap: 20px; 
+  list-style: none; 
+  padding: 15px; 
+  max-width: 1470px; 
+  width: 100%; 
+  margin: 0 auto; 
+  position: relative;
+}
+
+#shopify-section-sections--25547926372619__custom_mega_menu_xnnFAc .dmm-has-mega { 
+  position: static; 
+}
+
+#shopify-section-sections--25547926372619__custom_mega_menu_xnnFAc .dmm-mega-box {
+  position: absolute; 
+  top: 100%; 
+  left: 0; 
+  right: 0; 
+  width: 100%; 
+  max-width: 1470px;
+  height: 500px; 
+  padding-top: 20px; 
+  background: #fff; 
+  display: none; 
+  z-index: 999; 
+  pointer-events: auto;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+  border: 1px solid #eee;
+}
+
+#shopify-section-sections--25547926372619__custom_mega_menu_xnnFAc .dmm-has-mega:hover .dmm-mega-box,
+#shopify-section-sections--25547926372619__custom_mega_menu_xnnFAc .dmm-has-mega .dmm-mega-box:hover { 
+  display: flex; 
+}
+
+#shopify-section-sections--25547926372619__custom_mega_menu_xnnFAc .dmm-mega-inner { 
+  max-width: 1470px; 
+  width: 100%; 
+  margin: 0 auto; 
+  display: flex; 
+  height: 100%; 
+}
+
+#shopify-section-sections--25547926372619__custom_mega_menu_xnnFAc .dmm-left-side { 
+  width: 25%; 
+  border-right: 1px solid #eee; 
+  overflow-y: auto; 
+}
+
+#shopify-section-sections--25547926372619__custom_mega_menu_xnnFAc .dmm-lvl2-item {
+  display: flex; 
+  flex-direction: column; 
+  gap: 10px; 
+  padding: 15px 20px; 
+  cursor: pointer; 
+  border-bottom: 1px solid #f2f2f2; 
+  font-size: 16px;
+  align-items: center;
+}
+
+#shopify-section-sections--25547926372619__custom_mega_menu_xnnFAc .dmm-lvl2-item a { 
+  text-align: center; 
+  text-decoration: none; 
+  color: #000;
+}
+
+#shopify-section-sections--25547926372619__custom_mega_menu_xnnFAc .dmm-lvl2-item img { 
+  width: 80px; 
+  height: 80px; 
+  object-fit: contain; 
+  border-radius: 4px; 
+}
+
+#shopify-section-sections--25547926372619__custom_mega_menu_xnnFAc .dmm-lvl2-item.dmm-active { 
+  background: #f7f7f7; 
+  font-weight: bold; 
+}
+
+#shopify-section-sections--25547926372619__custom_mega_menu_xnnFAc .dmm-right-side { 
+  width: 75%; 
+  padding: 20px; 
+  overflow-y: auto; 
+}
+
+#shopify-section-sections--25547926372619__custom_mega_menu_xnnFAc .dmm-lvl3-block { 
+  display: none; 
+}
+
+#shopify-section-sections--25547926372619__custom_mega_menu_xnnFAc .dmm-lvl3-block.dmm-active { 
+  display: block; 
+}
+
+#shopify-section-sections--25547926372619__custom_mega_menu_xnnFAc .dmm-products-grid { 
+  display: grid; 
+  grid-template-columns: repeat(4, 1fr); 
+  gap: 15px; 
+}
+
+#shopify-section-sections--25547926372619__custom_mega_menu_xnnFAc .dmm-products-grid a {
+  text-decoration: none; 
+  color: #000; 
+  border: 1px solid #eee; 
+  padding: 10px; 
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  gap: 8px; 
+  transition: 0.2s; 
+  font-size: 14px;
+  text-align: center;
+}
+
+#shopify-section-sections--25547926372619__custom_mega_menu_xnnFAc .dmm-products-grid a img { 
+  width: 100%; 
+  height: 120px; 
+  object-fit: contain; 
+}
+
+#shopify-section-sections--25547926372619__custom_mega_menu_xnnFAc .dmm-products-grid a:hover { 
+  transform: translateY(-3px); 
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+/* scrollbar */
+#shopify-section-sections--25547926372619__custom_mega_menu_xnnFAc .dmm-left-side, 
+#shopify-section-sections--25547926372619__custom_mega_menu_xnnFAc .dmm-right-side { 
+  scroll-behavior: smooth; 
+  scrollbar-width: thin; 
+  scrollbar-color: #888 #f1f1f1; 
+}
+
+#shopify-section-sections--25547926372619__custom_mega_menu_xnnFAc .dmm-left-side::-webkit-scrollbar, 
+#shopify-section-sections--25547926372619__custom_mega_menu_xnnFAc .dmm-right-side::-webkit-scrollbar { 
+  width: 6px; 
+}
+
+#shopify-section-sections--25547926372619__custom_mega_menu_xnnFAc .dmm-left-side::-webkit-scrollbar-track, 
+#shopify-section-sections--25547926372619__custom_mega_menu_xnnFAc .dmm-right-side::-webkit-scrollbar-track { 
+  background: #f9f9f9; 
+  border-radius: 10px; 
+}
+
+#shopify-section-sections--25547926372619__custom_mega_menu_xnnFAc .dmm-left-side::-webkit-scrollbar-thumb, 
+#shopify-section-sections--25547926372619__custom_mega_menu_xnnFAc .dmm-right-side::-webkit-scrollbar-thumb { 
+  background-color: #ccc; 
+  border-radius: 10px; 
+  border: 2px solid transparent; 
+  background-clip: content-box; 
+}
+
+#shopify-section-sections--25547926372619__custom_mega_menu_xnnFAc .dmm-has-mega::after { 
+  content: ""; 
+  position: absolute; 
+  left: 0; 
+  top: 100%; 
+  width: 100%; 
+  height: 20px; 
+}
+
+/* MOBILE ONLY CHANGES */
+.dmm-mobile-toggle { display: none; }
+.dmm-mobile-wrapper { display: none; }
+
+@media (max-width: 768px) {
+  #shopify-section-sections--25547926372619__custom_mega_menu_xnnFAc .dmm-mobile-toggle { display: block; padding: 10px 15px; font-size: 22px; cursor: pointer; user-select: none; }
+  #shopify-section-sections--25547926372619__custom_mega_menu_xnnFAc .dmm-main-container { display: none; flex-direction: column; width: 100%; position: static; }
+  #shopify-section-sections--25547926372619__custom_mega_menu_xnnFAc .dmm-nav-wrapper.dmm-mobile-open .dmm-main-container { display: flex; }
+  #shopify-section-sections--25547926372619__custom_mega_menu_xnnFAc .dmm-mega-box { width: 100%; flex-direction: column; position: relative; height: auto; padding-top: 0; border: none; box-shadow: none; }
+  #shopify-section-sections--25547926372619__custom_mega_menu_xnnFAc .dmm-right-side { display: none; }
+  #shopify-section-sections--25547926372619__custom_mega_menu_xnnFAc .dmm-left-side { width: 100%; }
+  #shopify-section-sections--25547926372619__custom_mega_menu_xnnFAc .dmm-lvl2-item { justify-content: flex-start; flex-direction: row; align-items: center; padding: 12px 20px; position: relative; }
+  
+  #shopify-section-sections--25547926372619__custom_mega_menu_xnnFAc .dmm-lvl2-item::after {
+    content: ""; 
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background-image: url("https://img.icons8.com/ios-filled/50/forward--v1.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    right: 20px;
+  }
+
+  #shopify-section-sections--25547926372619__custom_mega_menu_xnnFAc .dmm-lvl2-item.dmm-active::after {
+    background-image: url("https://img.icons8.com/ios-filled/50/expand-arrow--v1.png");
+  }
+  
+  #shopify-section-sections--25547926372619__custom_mega_menu_xnnFAc .dmm-lvl3-block { display: none; padding: 10px 15px; background: #fafafa; }
+  #shopify-section-sections--25547926372619__custom_mega_menu_xnnFAc .dmm-lvl3-block.dmm-active { display: block; }
+  #shopify-section-sections--25547926372619__custom_mega_menu_xnnFAc .dmm-products-grid { grid-template-columns: repeat(2, 1fr); }
+  #shopify-section-sections--25547926372619__custom_mega_menu_xnnFAc .dmm-mega-box.dmm-is-mobile-open { display: flex !important; }
+  #shopify-section-sections--25547926372619__custom_mega_menu_xnnFAc .dmm-lvl2-item img { width: 50px !important; height: 50px !important; }
+  #shopify-section-sections--25547926372619__custom_mega_menu_xnnFAc li.dmm-has-mega a { display: flex; justify-content: space-between !important; }
+  .dmm-mobile-toggle.dmm-is-open::after { content: "✕"; }
+  .dmm-mobile-toggle::after { content: "☰"; }
+  .dmm-mobile-wrapper { display: flex; align-items: center; padding: 10px; justify-content: space-between; }
+}
+</style>
+
+{% if section.settings.enable_megamenu %}
+<nav class="dmm-nav-wrapper">
+  <div class="dmm-mobile-wrapper">
+    <div class="dmm-mobile-toggle"></div>
+  </div>
+  <ul class="dmm-main-container">
+    {% assign menu = linklists[section.settings.menu] %}
+    {% for link in menu.links %}
+      <li class="dmm-has-mega">
+        <a href="{{ link.url }}">{{ link.title }} {% if link.links != blank %}<span class="dmm-down-icon" onclick="toggleDmmMenu(event)">▾</span>{% endif %}</a>
+        {% if link.links != blank %}
+        <div class="dmm-mega-box">
+          <div class="dmm-mega-inner">
+            <div class="dmm-left-side">
+              {% for child in link.links %}
+                <div class="dmm-lvl2-item {% if forloop.first %}dmm-active{% endif %}" data-target="lvl3-{{ section.id }}-{{ link.handle }}-{{ forloop.index0 }}">
+                  {% if child.object.featured_image %}
+                    <img src="{{ child.object.featured_image | image_url: width: 200 }}" alt="{{ child.title }}">
+                  {% endif %}
+                  <a href="{{ child.url }}">{{ child.title }}</a>
+                </div>
+              {% endfor %}
+            </div>
+            <div class="dmm-right-side">
+              {% for child in link.links %}
+                <div class="dmm-lvl3-block {% if forloop.first %}dmm-active{% endif %}" id="lvl3-{{ section.id }}-{{ link.handle }}-{{ forloop.index0 }}">
+                  <div class="dmm-products-grid">
+                    {% for grand in child.links %}
+                      <a href="{{ grand.url }}">
+                        {% if grand.object.featured_image %}
+                          <img src="{{ grand.object.featured_image | image_url: width: 200 }}" alt="{{ grand.title }}">
+                        {% endif %}
+                        <span>{{ grand.title }}</span>
+                      </a>
+                    {% endfor %}
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+</nav>
+{% endif %}
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  // ১. হ্যামবার্গার টগল
+  const toggle = document.querySelector(".dmm-mobile-toggle");
+  const nav = document.querySelector(".dmm-nav-wrapper");
+  if (toggle && nav) {
+    toggle.addEventListener("click", function () { 
+      nav.classList.toggle("dmm-mobile-open");
+      this.classList.toggle("dmm-is-open"); 
+    });
+  }
+
+  // ২. ডেস্কটপ হোভার
+  document.querySelectorAll(".dmm-lvl2-item").forEach(item => {
+    item.addEventListener("mouseenter", () => {
+      if (window.innerWidth <= 768) return;
+      const megaContainer = item.closest('.dmm-mega-box');
+      if (!megaContainer) return;
+      megaContainer.querySelectorAll(".dmm-lvl2-item").forEach(i => i.classList.remove("dmm-active"));
+      megaContainer.querySelectorAll(".dmm-lvl3-block").forEach(r => r.classList.remove("dmm-active"));
+      item.classList.add("dmm-active");
+      const target = document.getElementById(item.dataset.target);
+      if (target) target.classList.add("dmm-active");
+    });
+  });
+
+  // ৩. মেইন মেনু লিঙ্কের জন্য (মোবাইল)
+  document.querySelectorAll(".dmm-has-mega > a").forEach(link => {
+    link.addEventListener("click", function(e) {
+      if (window.innerWidth <= 768) {
+        e.preventDefault(); 
+        const mega = this.closest('.dmm-has-mega').querySelector('.dmm-mega-box');
+        if (mega) mega.classList.toggle('dmm-is-mobile-open');
+      }
+    });
+  });
+
+  // ৪. L2 ক্লিক লজিক (মোবাইল)
+  document.querySelectorAll(".dmm-lvl2-item").forEach(item => {
+    item.addEventListener("click", (e) => {
+      if (window.innerWidth > 768) return;
+      
+      e.preventDefault(); 
+      e.stopPropagation();
+      
+      const target = document.getElementById(item.dataset.target);
+      const parentMega = item.closest('.dmm-mega-box');
+      if (!parentMega) return;
+      const isActive = item.classList.contains("dmm-active");
+
+      parentMega.querySelectorAll(".dmm-lvl2-item").forEach(i => i.classList.remove("dmm-active"));
+      parentMega.querySelectorAll(".dmm-lvl3-block").forEach(i => i.classList.remove("dmm-active"));
+
+      if (!isActive) {
+        item.classList.add("dmm-active");
+        if (target) {
+          target.classList.add("dmm-active");
+          item.insertAdjacentElement("afterend", target);
+        }
+      }
+    });
+  });
+});
+
+function toggleDmmMenu(e) {
+  e.preventDefault(); 
+  e.stopPropagation();
+  const parentLi = e.target.closest('.dmm-has-mega');
+  const mega = parentLi ? parentLi.querySelector('.dmm-mega-box') : null;
+  if (mega) { mega.classList.toggle('dmm-is-mobile-open'); }
+}
+</script>
+
+{% schema %}
+{
+  "name": "Dynamic Mega Menu",
+  "settings": [
+    { "type": "checkbox", "id": "enable_megamenu", "label": "Enable Mega Menu", "default": true },
+    { "type": "link_list", "id": "menu", "label": "Select Navigation Menu" },
+    { "type": "range", "id": "animation_duration", "label": "Animation Duration", "min": 100, "max": 1000, "step": 50, "default": 300 }
+  ],
+  "presets": [{ "name": "Dynamic Mega Menu" }]
+}
+{% endschema %}

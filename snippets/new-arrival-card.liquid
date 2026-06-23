@@ -1,0 +1,51 @@
+{% comment %}
+  Renders a single product card for the new-arrivals-slider section.
+  Expects: product, section
+{% endcomment %}
+
+{% assign variant = product.selected_or_first_available_variant %}
+
+<div class="na-card">
+  <a href="{{ product.url }}" class="na-card-image-link">
+    {% if product.featured_image %}
+      <img
+        src="{{ product.featured_image | image_url: width: 400 }}"
+        alt="{{ product.featured_image.alt | escape }}"
+        loading="lazy"
+        width="200"
+        height="200"
+        class="na-card-image"
+      >
+    {% else %}
+      <div class="na-card-image-ph"></div>
+    {% endif %}
+  </a>
+
+  <a href="{{ product.url }}" class="na-card-title">{{ product.title }}</a>
+
+  {% if product.vendor != blank %}
+    <p class="na-card-vendor">{{ product.vendor }}</p>
+  {% endif %}
+
+  <p class="na-card-price">{{ cart.currency.iso_code | default: shop.currency }} {{ product.price | money_without_currency }}</p>
+
+  {% if section.settings.show_card_banner and section.settings.card_banner_image %}
+    <div class="na-card-banner-wrap">
+      <img
+        src="{{ section.settings.card_banner_image | image_url: width: 500 }}"
+        alt=""
+        loading="lazy"
+        width="400"
+        height="100"
+      >
+    </div>
+  {% endif %}
+
+  {% form 'product', product %}
+    <input type="hidden" name="id" value="{{ variant.id }}">
+    <button type="submit" class="na-add-to-cart" {% if variant.available == false %}disabled{% endif %}>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+      {% if variant.available == false %}Sold out{% else %}Add to cart{% endif %}
+    </button>
+  {% endform %}
+</div>

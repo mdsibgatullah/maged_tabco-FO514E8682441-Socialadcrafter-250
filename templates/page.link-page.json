@@ -1,0 +1,156 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "rich_text_Vgdcfz": {
+      "type": "rich-text",
+      "blocks": {
+        "button_fMXf8A": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_style": "button_1",
+            "button_label": "Website",
+            "button_link": "https://www.be3ah.com/",
+            "margin_top_button": 30,
+            "enable_underline_button": false,
+            "button_color": "#ffffff",
+            "button_border_color": "#000000",
+            "button_bg_color": "#000000",
+            "button_bg_gradient": "",
+            "button_color_hover": "#000000",
+            "button_border_color_hover": "#000000",
+            "button_bg_color_hover": "#ffffff",
+            "button_bg_gradient_hover": "",
+            "button_width": "270px"
+          }
+        },
+        "social_media_3ktyM9": {
+          "type": "social_media",
+          "disabled": true,
+          "settings": {
+            "social_spacing_top": 0,
+            "social_spacing_bottom": 0,
+            "social_icon_color": "",
+            "social_icon_background_color": "",
+            "social_icon_background_gradient": "",
+            "social_icon_hover_color": "",
+            "social_icon_background_hover_color": "",
+            "social_icon_background_hover_gradient": "",
+            "social_icon_ring_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "button_fMXf8A",
+        "social_media_3ktyM9"
+      ],
+      "disabled": true,
+      "settings": {
+        "container": "container",
+        "padding_full_width": 0,
+        "enable_border_top": false,
+        "enable_border_bottom": false,
+        "color_border_bottom": "#e8e8e8",
+        "enable_minus_mg_top": false,
+        "minus_spacing_top": -100,
+        "rich_text_bg": "#ffffff",
+        "rich_text_bg_gradient": "",
+        "enable_column": false,
+        "content_align": "center",
+        "mg_top_desktop": 50,
+        "mg_top_tablet": 50,
+        "mg_top_mobile": 50,
+        "mg_bottom_desktop": 50,
+        "mg_bottom_tablet": 50,
+        "mg_bottom_mobile": 50
+      }
+    },
+    "custom_liquid_MQdwMh": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<div class=\"social-buttons\" style=\"display: flex; flex-direction: column; gap: 10px; align-items: center; margin-top: 20px;\">\n<h2> Follow Us </h2>\n<p> Stay Connected for offers and deals.</p>\n  <a href=\"https://www.be3ah.com/\" target=\"_blank\" style=\"text-decoration: none; width: 100%; max-width: 300px;\">\n    <div style=\"\n      background-color: #000;\n      color: #fff;\n      padding: 12px;\n      border-radius: 8px;\n      font-weight: bold;\n      font-size: 14px;\n      text-align: center;\n      text-transform: uppercase;\n      transition: background-color 0.3s ease;\n    \" onmouseover=\"this.style.backgroundColor='#444'\" onmouseout=\"this.style.backgroundColor='#000'\">\n      Website\n    </div>\n  </a>\n\n  <a href=\"https://www.instagram.com/be3ahkwt/\" target=\"_blank\" style=\"text-decoration: none; width: 100%; max-width: 300px;\">\n    <div style=\"\n      background-color: #000;\n      color: #fff;\n      padding: 12px;\n      border-radius: 8px;\n      font-weight: bold;\n      font-size: 14px;\n      text-align: center;\n      text-transform: uppercase;\n      transition: background-color 0.3s ease;\n    \" onmouseover=\"this.style.backgroundColor='#444'\" onmouseout=\"this.style.backgroundColor='#000'\">\n      Instagram\n    </div>\n  </a>\n\n  <a href=\"https://www.facebook.com/people/Beaah%D8%A8%D9%8A%D8%B9%D8%A9/61570980699649/\" target=\"_blank\" style=\"text-decoration: none; width: 100%; max-width: 300px;\">\n    <div style=\"\n      background-color: #000;\n      color: #fff;\n      padding: 12px;\n      border-radius: 8px;\n      font-weight: bold;\n      font-size: 14px;\n      text-align: center;\n      text-transform: uppercase;\n      transition: background-color 0.3s ease;\n    \" onmouseover=\"this.style.backgroundColor='#444'\" onmouseout=\"this.style.backgroundColor='#000'\">\n      Facebook\n    </div>\n  </a>\n\n  <a href=\"https://www.tiktok.com/@be3ahkw\" target=\"_blank\" style=\"text-decoration: none; width: 100%; max-width: 300px;\">\n    <div style=\"\n      background-color: #000;\n      color: #fff;\n      padding: 12px;\n      border-radius: 8px;\n      font-weight: bold;\n      font-size: 14px;\n      text-align: center;\n      text-transform: uppercase;\n      transition: background-color 0.3s ease;\n    \" onmouseover=\"this.style.backgroundColor='#444'\" onmouseout=\"this.style.backgroundColor='#000'\">\n      TikTok\n    </div>\n  </a>\n\n  <a href=\"https://www.youtube.com/@Be3ah\" target=\"_blank\" style=\"text-decoration: none; width: 100%; max-width: 300px;\">\n    <div style=\"\n      background-color: #000;\n      color: #fff;\n      padding: 12px;\n      border-radius: 8px;\n      font-weight: bold;\n      font-size: 14px;\n      text-align: center;\n      text-transform: uppercase;\n      transition: background-color 0.3s ease;\n    \" onmouseover=\"this.style.backgroundColor='#444'\" onmouseout=\"this.style.backgroundColor='#000'\">\n      YouTube\n    </div>\n  </a>\n<a href=\"https://api.whatsapp.com/send/?phone=96592224031&text=helllo&type=phone_number&app_absent=0\" target=\"_blank\" style=\"text-decoration: none; width: 100%; max-width: 300px;\">\n    <div style=\"\n      background-color: #25D366;\n      color: #fff;\n      padding: 12px;\n      border-radius: 8px;\n      font-weight: bold;\n      font-size: 14px;\n      text-align: center;\n      text-transform: uppercase;\n      transition: background-color 0.3s ease;\n    \" onmouseover=\"this.style.backgroundColor='#1DA851'\" onmouseout=\"this.style.backgroundColor='#25D366'\">\n      WhatsApp\n    </div>\n  </a>\n\n</div>"
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "custom_press_banner_gxgyFQ": {
+      "type": "custom-press-banner",
+      "settings": {
+        "container": "container",
+        "padding_full_width": 0,
+        "press_bg": "#fafafa",
+        "press_gradient": "",
+        "align_items": "start",
+        "press_image": "shopify://shop_images/SASXA.jpg",
+        "press_image_width": 320,
+        "press_image_width_ratio": 51,
+        "sub_title": "",
+        "letter_spacing_sub_title": "",
+        "font_size_sub_title": 14,
+        "font_size_sub_title_mb": 14,
+        "margin_bottom_sub_title": 14,
+        "font_weight_sub_title": "700",
+        "sub_title_position": "sub_title_above",
+        "color_sub_title": "#232323",
+        "title": "Sale 70% OFF",
+        "title_font_size": 80,
+        "title_font_size_mb": 20,
+        "title_font_weight": "700",
+        "mg_bottom_title": 15,
+        "title_color": "#000000",
+        "des": "Limited Time Only.",
+        "des_font_size": 12,
+        "des_font_size_mb": 12,
+        "des_font_weight": "400",
+        "mg_bottom_des": 15,
+        "des_color": "#000000",
+        "item_spacing": 120,
+        "content_max_width": 260,
+        "button_text": "Shop Now",
+        "button_link": "shopify://collections",
+        "fontsize_btn": 16,
+        "button_width": 190,
+        "color_button": "#ffffff",
+        "border_color_button": "#232323",
+        "bg_color_button": "#232323",
+        "bg_gradient_color_button": "",
+        "color_button_hover": "#ffffff",
+        "border_color_button_hover": "#232323",
+        "bg_color_button_hover": "#232323",
+        "bg_gradient_color_button_hover": "",
+        "btn_text_transform": "uppercase",
+        "image_behavior": "none",
+        "mg_top_desktop": 50,
+        "mg_top_tablet": 50,
+        "mg_top_mobile": 50,
+        "mg_bottom_desktop": 50,
+        "mg_bottom_tablet": 50,
+        "mg_bottom_mobile": 50
+      }
+    },
+    "custom_liquid_YqXALh": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<style>\n#shopify-section-sections--23932336930980__header_advanced_NtYwF6, #shopify-section-sections--23932336930980__f32db78d-5bbc-484d-b86f-faab3cc4c860,.wrapper-footer, #shopify-section-sections--23932336930980__header-mobile, #shopify-section-halo-toolbar-mobile{\ndisplay:none\n}\n</style>"
+      }
+    }
+  },
+  "order": [
+    "rich_text_Vgdcfz",
+    "custom_liquid_MQdwMh",
+    "main",
+    "custom_press_banner_gxgyFQ",
+    "custom_liquid_YqXALh"
+  ]
+}

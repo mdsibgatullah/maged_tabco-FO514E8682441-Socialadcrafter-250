@@ -1,0 +1,174 @@
+<!doctype html>
+{%- liquid
+  if settings.list_iso_rtl != blank
+    assign locale_iso_code = request.locale.iso_code
+    assign arr_list_rtl = settings.list_iso_rtl | remove: ' ' | split: ','
+    if arr_list_rtl contains locale_iso_code
+      assign enable_iso_rtl = true
+    else
+      assign enable_iso_rtl = false
+    endif
+  else
+    assign enable_iso_rtl = false
+  endif
+-%}
+<html class="no-js" lang="{{ request.locale.iso_code }}" dir="{% if request.locale.iso_code == 'ar' %}rtl{% else %}ltr{% endif %}">
+    <head>
+    <meta name="google-site-verification" content="qrDzbav9mx0ygEiwPRiV-6tW52wqVnNSQfm9VJVS8rI" />
+	<!-- Added by AVADA SEO Suite -->
+	{% include 'avada-seo' %}
+	<!-- /Added by AVADA SEO Suite -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="">
+      {% comment %} <link rel="canonical" href="{{ canonical_url }}" canonical-shop-url="{{ shop.url }}/"> {% endcomment %}
+    {% if current_page != 1 %}
+      <link rel="canonical" href="{{ collection.url | within: collection }}"  canonical-shop-url="{{ shop.url }}/">
+    {% else %}
+      <link rel="canonical" href="{{ canonical_url }}"  canonical-shop-url="{{ shop.url }}/">
+    {% endif %}
+
+    {% if settings.favicon != blank %}
+      <link rel="shortcut icon" href="{{ settings.favicon | img_url: '32x32' }}" type="image/png">
+    {% endif %}
+
+    <!-- Shopify-hosted Fonts Only -->
+    {% comment %} {% if settings.type_heading_font.family contains 'fonts' %}
+      {{ settings.type_heading_font | font_face: font_display: 'swap' }}
+    {% endif %} {% endcomment %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=DM+Sans&display=swap" rel="stylesheet"></noscript>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+   document.querySelectorAll('img:not([loading])').forEach(img => {
+    img.setAttribute('loading', 'lazy');
+  });
+
+   window.addEventListener('load', () => {
+    document.querySelectorAll('script[async], script[defer]').forEach(s => {
+      if (!s.src.includes('shopify') && !s.src.includes('cdn.shopify.com')) {
+        s.setAttribute('defer', '');
+      }
+    });
+  });
+});
+</script>
+<style>
+  /* Custom image badge overlaid on product image — BOTTOM-LEFT */
+.product-image-overlay-badge {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;       /* 👈 Changed from 'right' to 'left' */
+  width: 20px;
+  height: 20px;
+  background-image: url("https://play-lh.googleusercontent.com/gNdrNHQr5gWalETK43Uo60G46OIwCZQwfaKTkIbJcEAD2MLzPr9t3erHOBGEkbmSricQwubKe53Z83NVw9uFo3E=w240-h480-rw");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  pointer-events: none;
+  z-index: 2;
+}
+  </style>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+   document.querySelectorAll("img").forEach(img => {
+    const src = img.getAttribute("src");
+    if (src && src.includes("cdn.shopify.com")) {
+       const optimizedSrc = src.replace(/(\.(jpg|jpeg|png|gif))(\?.*)?$/i, "_2048x.webp$3");
+      img.src = optimizedSrc;
+      img.setAttribute("decoding", "async");
+      img.setAttribute("fetchpriority", "low");
+    }
+  });
+});
+</script>
+{%- assign hero_image = section.settings.image | default: settings.hero_image -%}
+
+
+        <!-- Mamdouh  Only -->
+
+
+    <title>{{ page_title }}{% if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif %}{% if current_page != 1 %} &ndash; Page {{ current_page }}{% endif %}{% unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless %}</title>
+
+    {% if page_description %}
+      <meta name="description" content="{{ page_description | escape }}">
+    {% endif %}
+
+    {% render 'meta-tags' %}
+    {{ content_for_header }}
+    {% render 'variable' %}
+    {% render 'global-style' %}
+    {% render 'global-script' %}
+
+
+    <!-- LazySizes for lazy loading -->
+{% comment %} <script src="{{ 'lazysizes.min.js' | asset_url }}" defer></script> {% endcomment %}
+<script>
+  if ('requestIdleCallback' in window) {
+    requestIdleCallback(() => {
+      const s = document.createElement('script');
+      s.src = '{{ "lazysizes.min.js" | asset_url }}';
+      s.defer = true;
+      document.head.appendChild(s);
+    });
+  } else {
+    document.addEventListener('DOMContentLoaded', () => {
+      const s = document.createElement('script');
+      s.src = '{{ "lazysizes.min.js" | asset_url }}';
+      s.defer = true;
+      document.head.appendChild(s);
+    });
+  }
+</script>
+    <script>document.documentElement.className = document.documentElement.className.replace('no-js', 'js');</script>
+        {{ 'custom-styles.css' | asset_url | stylesheet_tag }}
+  </head>
+
+  <body class="template-{{ request.page_type }}">
+
+    <div class="body-content-wrapper">
+      <a class="skip-to-content-link button visually-hidden" href="#MainContent">{{ "accessibility.skip_to_text" | t }}</a>
+
+
+
+    <!-- Mamdouh for lazy loading -->
+
+{% unless request.page_type == 'product' %}
+  {% render 'halo-banner-adv-left' %}
+  {% render 'halo-banner-adv-right' %}
+{% endunless %}
+    <!-- Mamdouh for lazy loading -->
+
+
+      {% render 'preload-screen' %}
+      {% sections 'header-group' %}
+      {% render 'wrapper-header' %}
+      {% render 'halo-banner-adv-left' %}
+      {% render 'halo-banner-adv-right' %}
+
+      <main id="MainContent" class="wrapper-body content-for-layout focus-none" role="main" tabindex="-1">
+        {{ content_for_layout }}
+      </main>
+
+      <div class="wrapper-footer">
+        {% sections 'footer-group' %}
+      </div>
+
+      {% section 'halo-toolbar-mobile' %}
+      {% render 'global-script-2' %}
+    </div>
+
+    {% render 'halo-popup' %}
+    {% render 'halo-sidebar' %}
+
+
+     {% render 'lazy-scripts' %}
+
+         
+
+  </body>
+</html>
