@@ -7977,11 +7977,13 @@ html[dir="rtl"] .navPages-action::before {
 .template-collection #main-collection-product-grid .price-item--sale {
     color: #fcc216;
 }
-.template-collection #main-collection-product-grid a.button.button-ATC.is-notify-me {
+.template-collection #main-collection-product-grid .button.button-ATC, 
+.template-collection #main-collection-product-grid .product-form__submit {
     background-color: #fcc216;
     border: 0;
     border-radius: 5px;
 }
+
 .template-collection #main-collection-product-grid .card-product {
     position: static;
 }
@@ -7989,7 +7991,7 @@ html[dir="rtl"] .navPages-action::before {
     opacity: 1;
     visibility: visible;
 }
-.template-collection #main-collection-product-grid div#product-swatch-10305028554916 {
+.template-collection #main-collection-product-grid .quick_shop_type_2 {
     display: none;
 }
 .template-collection #main-collection-product-grid a.vendor-text {
@@ -7997,7 +7999,7 @@ html[dir="rtl"] .navPages-action::before {
 }
 .template-collection #main-collection-product-grid h3.card__heading {
     order: -1;
-    margin-bottom: 10px;
+    margin-bottom: 0px;
     opacity: .8;
 }
 .template-collection #main-collection-product-grid .card-information__wrapper {
