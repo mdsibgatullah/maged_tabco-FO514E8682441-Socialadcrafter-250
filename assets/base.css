@@ -8024,3 +8024,94 @@ html[dir="rtl"] .navPages-action::before {
     padding: 15px 5px 0px;
     margin-bottom: 40px;
 }
+.template-collection .sidebarBlock-headingWrapper {
+    background-color: #fcc216;
+    padding: 5px 10px;
+}
+.template-collection .sidebar--layout_2 .sidebarBlock-heading {
+    padding: 0;
+}
+
+.template-collection .sidebar--layout_2 .sidebarBlock-headingWrapper .sidebarBlock-heading:before, 
+.template-collection .sidebar--layout_2 .sidebarBlock-headingWrapper .sidebarBlock-heading:after {
+    background-color: transparent !important;
+}
+.template-collection h2.sidebarBlock-heading.is-clicked:after {
+    width: 10px !important;
+    height: 10px;
+    left: unset;
+    right: 1px;
+    top: 5px;
+    background-color: transparent;
+    transform: rotate(45deg) !important;
+    border: 2px solid black;
+    border-top: 0;
+    border-left: 0;
+}
+.template-collection h2.sidebarBlock-heading:after {
+    width: 10px !important;
+    height: 10px;
+    left: unset;
+    right: 1px;
+    top: 5px;
+    background-color: transparent;
+    transform: rotate(-45deg) !important;
+    border: 2px solid black;
+    border-top: 0;
+    border-left: 0;
+}
+
+.template-collection #CollectionFiltersForm .sidebarBlock {
+    margin: 10px;
+}
+.template-collection input#filter__price--apply {
+    background: transparent;
+    padding: 0;
+    border: none;
+    font-size: 14px;
+}
+.template-collection main#MainContent {
+    background: #f4f4f4;
+}
+.template-collection .halo-collection-content.halo-grid-content.sidebar--layout_vertical {
+    background-color: #fff;
+    box-shadow: 0px 4px 34px rgba(0, 0, 0, 0.08);
+    border-radius: 5px;
+    padding: 10px;
+}
+.template-collection toolbar-item.toolbar {
+    border: none;
+}
+
+.template-product .halo-productView-left.productView-images.clearfix.scroll-trigger.animate--fade-in {
+    padding-right: 30px;
+}
+.template-product .productView-tab .tabs {
+    text-align: unset;
+}
+.template-product .tab-title {
+    font-weight: 400 !important;
+}
+.template-product .productView-tab .tabs .tab-title:after {
+    background-color: #fcc216;
+}
+
+.template-product span.price-item.price-item--regular {
+    color: #fcc216;
+}
+
+.template-product .productView-images-wrapper,
+.template-product .halo-productView-right.productView-details.clearfix, 
+.template-product .productView-bottom .container-1770 {
+    box-shadow: 0px 4px 34px rgba(0, 0, 0, 0.08);
+    border-radius: 5px;
+}
+.template-product .productView-bottom .container-1770 {
+    padding: 0 20px;
+}
+.template-product .halo-productView-right.productView-details.clearfix {
+    padding: 20px;
+}
+.template-product .slick-list.draggable {
+    margin: 30px;
+}

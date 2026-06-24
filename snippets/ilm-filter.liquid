@@ -19,7 +19,7 @@
         border-top: 0;
         border-left: 0;
         transform: rotate(45deg);
-        transition: .4s;
+        transition: 0.4s;
         display: block;
         right: 15px;
         bottom: 15px;
@@ -38,8 +38,8 @@
       margin-top: 0px;
     }
     .ilm_collection_filter_head.deActive .ilm_filter_title span {
-        transform: rotate(-45deg);
-      }
+      transform: rotate(-45deg);
+    }
 
     .ilm_sublist_content {
       display: flex;
@@ -68,42 +68,63 @@
       cursor: pointer;
       line-height: 1.4;
     }
+    .hidden-item {
+      display: none;
+    }
+
+    .show-more-btn {
+      margin-top: 8px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      color: #000;
+      font-weight: 600;
+    }
   }
 </style>
 <div class="ilm_collection_filter" id="ilm_filter">
-  <div class="ilm_collection_filter_content">
-    <ul style="list-style: none; padding: 0;">
-      {% for filter in collection.filters %}
-        <li class="ilm_collection_filter_head">
-          <h3 class="ilm_filter_title">{{ filter.label }} 
-            <span></span>
-          </h3>
+  <div class="ilm_collection_inner">
+    <collection-filters class="ilm_collection_filter_content" data-section-id="{{ section.id }}">
+      <ul style="list-style: none; padding: 0;">
+        {% for filter in collection.filters %}
+          <li class="ilm_collection_filter_head">
+            <h3 class="ilm_filter_title">
+              {{ filter.label }}
+              <span></span>
+            </h3>
 
-        {% if filter.type == 'list' or filter.type == 'boolean' %}
-          <ul class="ilm_filter_sublist">
-            {% for value in filter.values %}
-              <li class="ilm_sublist_content">
-                <input
-                  class="ilm_sublist_check"
-                  type="checkbox"
-                  id="{{ filter.label }}-{{ value.label | handle }}"
-                  name="{{ filter.label | handle }}"
-                  value="{{ value.value | handle }}"
-                  data-add-url="{{ value.url_to_add }}"
-                  data-remove-url="{{ value.url_to_remove }}"
-                  {% if value.active %}
-                    checked
-                  {% endif %}
-                >
-                <label for="{{ filter.label }}-{{ value.label | handle }}">
-                  {{ value.label | link_to: value.url_to_add }} ({{ value.count }})
-                </label>
-              </li>
-            {% endfor %}
-          </ul>
-        {% endif %}
-        </li>
-      {% endfor %}
-    </ul>
+            {% if filter.type == 'list' or filter.type == 'boolean' %}
+              <ul class="ilm_filter_sublist">
+                {% for value in filter.values %}
+                  <li class="ilm_sublist_content {% if forloop.index > 5 %}hidden-item{% endif %}">
+                    <input
+                      class="ilm_sublist_check"
+                      type="checkbox"
+                      id="{{ filter.label }}-{{ value.label | handle }}"
+                      name="{{ filter.label | handle }}"
+                      value="{{ value.value | handle }}"
+                      data-add-url="{{ value.url_to_add }}"
+                      data-remove-url="{{ value.url_to_remove }}"
+                      {% if value.active %}
+                        checked
+                      {% endif %}
+                    >
+                    <label for="{{ filter.label }}-{{ value.label | handle }}">
+                      {{ value.label }} ({{ value.count }})
+                    </label>
+                  </li>
+                {% endfor %}
+              </ul>
+
+              {% if filter.values.size > 5 %}
+                <div style="text-align: end;">
+                  <button class="show-more-btn">Show more</button>
+                </div>
+              {% endif %}
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    </collection-filters>
   </div>
 </div>
